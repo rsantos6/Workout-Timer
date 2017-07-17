@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="ViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,7 +28,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-OV-U44">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-OV-U44">
                                 <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,25 +48,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzK-R9-2p7">
-                                <rect key="frame" x="26" y="206" width="88" height="30"/>
+                                <rect key="frame" x="19" y="284" width="288" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Yes">
-                                    <color key="titleColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="yesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gfw-84-pJA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bj-VE-zk4">
-                                <rect key="frame" x="195" y="206" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="No">
-                                    <color key="titleColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-sd-4PO">
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-sd-4PO">
                                 <rect key="frame" x="113" y="126" width="100" height="360"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -74,7 +67,7 @@
                                     <outletCollection property="gestureRecognizers" destination="7cW-xg-zJq" appends="YES" id="Mvr-Nm-9kJ"/>
                                 </connections>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGm-Nq-9Si">
+                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGm-Nq-9Si">
                                 <rect key="frame" x="194" y="126" width="100" height="360"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -85,7 +78,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-FO-5me">
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-FO-5me">
                                 <rect key="frame" x="15" y="126" width="100" height="360"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -104,16 +97,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="685-jG-E3B">
-                                <rect key="frame" x="26" y="462" width="268" height="34"/>
+                                <rect key="frame" x="15" y="446" width="288" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="continueBUttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pzw-cn-gRn"/>
                                     <segue destination="vdj-aw-LxD" kind="show" identifier="segueFromYesNo" id="n7w-Le-rd8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bj-VE-zk4">
+                                <rect key="frame" x="19" y="384" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="No">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vdj-aw-LxD" kind="show" id="NMt-q4-sVY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,12 +141,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="7cW-xg-zJq"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="-280"/>
+            <point key="canvasLocation" x="990" y="-287.32394366197184"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="JdG-pg-pC6">
             <objects>
-                <viewController storyboardIdentifier="workoutTimerThree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vdj-aw-LxD" customClass="ThirdViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="workoutTimerThree" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vdj-aw-LxD" customClass="ThirdViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pIS-n1-Iux"/>
                         <viewControllerLayoutGuide type="bottom" id="fBh-N8-tmB"/>
@@ -151,30 +156,738 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgk-19-PRQ">
-                                <rect key="frame" x="-23" y="16" width="343" height="65"/>
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="wdW-rO-HXd">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="wdW-rO-HXd">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How long would you like your cooldown to be?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xff-tD-H5P">
+                                <rect key="frame" x="26" y="115" width="244" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-b9-rZ2">
+                                <rect key="frame" x="19" y="284" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ny4-xj-Q5I"/>
+                                    <action selector="yesButtonClicked:" destination="vdj-aw-LxD" eventType="touchUpInside" id="h67-74-zNf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kal-RW-rQE">
+                                <rect key="frame" x="19" y="384" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="No">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButtonClicked:" destination="vdj-aw-LxD" eventType="touchUpInside" id="dgi-bn-vuq"/>
+                                    <segue destination="lpX-hW-owg" kind="show" id="zp2-xN-CCq"/>
+                                </connections>
+                            </button>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryl-HJ-Mxw">
+                                <rect key="frame" x="113" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </pickerView>
+                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MwA-Zd-Dav">
+                                <rect key="frame" x="194" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I72-uP-ct9">
+                                <rect key="frame" x="185" y="295" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPL-yC-HiW">
+                                <rect key="frame" x="15" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-Cy-fUd">
+                                <rect key="frame" x="89" y="295" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdc-mT-YDF">
+                                <rect key="frame" x="263" y="295" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJq-pP-R7N">
+                                <rect key="frame" x="15" y="446" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueBUttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RGv-o8-epQ"/>
+                                    <segue destination="lpX-hW-owg" kind="show" id="3Hb-55-9xv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTq-Vm-z2q">
+                                <rect key="frame" x="4" y="93" width="311" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91565436124801636" green="0.25641614198684692" blue="0.18527480959892273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Fu-ou-ogf"/>
+                    <connections>
+                        <outlet property="continueButton" destination="AJq-pP-R7N" id="fFa-Bz-isI"/>
+                        <outlet property="coolDownQ" destination="Xff-tD-H5P" id="lt2-EA-IRh"/>
+                        <outlet property="hiddenLabel" destination="tTq-Vm-z2q" id="geZ-U9-Yfi"/>
+                        <outlet property="hourLabel" destination="Jy4-Cy-fUd" id="wUX-Re-p9Q"/>
+                        <outlet property="hourPicker" destination="NPL-yC-HiW" id="Yyc-Px-AoD"/>
+                        <outlet property="minuteLabel" destination="I72-uP-ct9" id="xRP-1K-KIt"/>
+                        <outlet property="minutePicker" destination="Ryl-HJ-Mxw" id="CQX-tk-EHX"/>
+                        <outlet property="noButton" destination="Kal-RW-rQE" id="EbI-Ws-5ZQ"/>
+                        <outlet property="secondLabel" destination="Kdc-mT-YDF" id="XU0-Ov-fhY"/>
+                        <outlet property="secondPicker" destination="MwA-Zd-Dav" id="aEr-kO-L3v"/>
+                        <outlet property="yesButton" destination="cc4-b9-rZ2" id="O38-vn-4TW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgs-8Q-ZAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="-287.32394366197184"/>
+        </scene>
+        <!--Fourth View Controller-->
+        <scene sceneID="793-Tg-LVp">
+            <objects>
+                <viewController storyboardIdentifier="workoutTimerFour" modalTransitionStyle="flipHorizontal" id="lpX-hW-owg" customClass="FourthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lLs-ZU-ibs"/>
+                        <viewControllerLayoutGuide type="bottom" id="bB5-sx-kCV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rJb-bH-VnX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35N-Gg-cyi">
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you want to go back and change anything, you may do so shortly." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJx-gD-F4T">
+                                <rect key="frame" x="16" y="132" width="288" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-tO-HlL">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="But now, it's time to customize your workout!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcK-O4-irG">
+                                <rect key="frame" x="16" y="225" width="288" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06I-eg-2bh">
+                                <rect key="frame" x="16" y="405" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueBUttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lps-4Q-lnS"/>
+                                    <segue destination="Vb2-lh-NPs" kind="show" id="qT2-C2-dRa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOE-aw-u45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="2Js-fr-bxn"/>
+            </objects>
+            <point key="canvasLocation" x="2824" y="-287"/>
+        </scene>
+        <!--Fifth View Controller-->
+        <scene sceneID="CeW-2A-3pV">
+            <objects>
+                <viewController storyboardIdentifier="workoutTimerFive" modalTransitionStyle="flipHorizontal" id="Vb2-lh-NPs" customClass="FifthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JFg-QF-vNO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Adv-OW-vaM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QmB-BJ-S8v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-my-VGa">
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="lns-9t-0kx">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-PB-6Sm">
+                                <rect key="frame" x="16" y="118" width="288" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSQ-uW-BAP">
+                                <rect key="frame" x="16" y="267" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aGA-ZM-Aol" kind="show" id="Vdj-8m-bhu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD0-0z-GM4">
+                                <rect key="frame" x="16" y="354" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.10481263058198342" blue="0.036069293772593158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="No">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButtonAction:" destination="Vb2-lh-NPs" eventType="touchUpInside" id="FyG-OY-O6Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZK-5E-3hH">
+                                <rect key="frame" x="16" y="445" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Back ">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="Vb2-lh-NPs" eventType="touchUpInside" id="0Fz-wv-efG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTR-gb-fMS">
+                                <rect key="frame" x="16" y="267" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eFz-Pm-hww" kind="show" id="Y2B-xF-DCw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnX-w3-Rv1">
+                                <rect key="frame" x="16" y="267" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="f68-aJ-g6a" kind="show" id="i6l-eW-G6m"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="mZK-5E-3hH" id="VcJ-vo-o0a"/>
+                        <outlet property="multipleQuestionLabel" destination="9nz-PB-6Sm" id="Yvb-VF-S1C"/>
+                        <outlet property="noButton" destination="cD0-0z-GM4" id="tDy-ik-AZJ"/>
+                        <outlet property="yesButton" destination="XSQ-uW-BAP" id="B4j-sB-aZc"/>
+                        <outlet property="yesButton2" destination="HTR-gb-fMS" id="cik-vo-6J1"/>
+                        <outlet property="yesButton3" destination="gnX-w3-Rv1" id="kA2-Sf-WQY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euq-ig-c6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="hp9-qK-xp2"/>
+            </objects>
+            <point key="canvasLocation" x="3802.5" y="-287.32394366197184"/>
+        </scene>
+        <!--SixthViewController-->
+        <scene sceneID="xlN-kx-Bbb">
+            <objects>
+                <viewController storyboardIdentifier="SixthViewController" title="SixthViewController" id="aGA-ZM-Aol" customClass="SixthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pxs-qR-Rnq"/>
+                        <viewControllerLayoutGuide type="bottom" id="RM1-vM-rib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yoJ-qQ-Ygt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-N5-wnJ">
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How long are you running for?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-nW-rkx">
+                                <rect key="frame" x="28" y="119" width="276" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Le-u8-Tmt">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-S4-kR0">
+                                <rect key="frame" x="113" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </pickerView>
+                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7uN-PX-bGA">
+                                <rect key="frame" x="194" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLB-Mu-uOG">
+                                <rect key="frame" x="184" y="296" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJw-Hl-IY9">
+                                <rect key="frame" x="16" y="126" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-DE-5Ms">
+                                <rect key="frame" x="88" y="296" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfY-Nn-ie6">
+                                <rect key="frame" x="262" y="296" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKx-vO-gfW">
+                                <rect key="frame" x="16" y="469" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Review Info">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueBUttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qsL-uf-esC"/>
+                                    <segue destination="Ul0-28-xG6" kind="show" id="tqn-eX-oOH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="hourLabel" destination="By3-DE-5Ms" id="RrV-Rx-fUO"/>
+                        <outlet property="hourPicker" destination="xJw-Hl-IY9" id="tRO-WG-Ncq"/>
+                        <outlet property="minuteLabel" destination="BLB-Mu-uOG" id="blr-Uc-5gf"/>
+                        <outlet property="minutePicker" destination="Mip-S4-kR0" id="aPL-W2-C7y"/>
+                        <outlet property="secondLabel" destination="JfY-Nn-ie6" id="hH4-65-eZQ"/>
+                        <outlet property="secondPicker" destination="7uN-PX-bGA" id="lTQ-8Z-m1g"/>
+                        <outlet property="sixthLabel" destination="aRr-nW-rkx" id="sDg-85-WwC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNr-pm-ZGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4561.875" y="-378.16901408450707"/>
+        </scene>
+        <!--Ninth View Controller-->
+        <scene sceneID="RF0-c7-RCl">
+            <objects>
+                <viewController storyboardIdentifier="NinthViewController" modalTransitionStyle="flipHorizontal" id="Ul0-28-xG6" customClass="NinthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qss-LS-mxq"/>
+                        <viewControllerLayoutGuide type="bottom" id="351-ds-rhD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="diu-Qw-c0D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review the information, edit if necessary, and then get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXO-9L-chu">
+                                <rect key="frame" x="16" y="28" width="288" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVr-IK-2Jc">
+                                <rect key="frame" x="16" y="94" width="288" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j39-S6-zpK">
+                                <rect key="frame" x="16" y="153" width="288" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editWarmUpButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="JzD-25-sxA"/>
+                                    <segue destination="gEH-TK-srr" kind="show" id="oJ7-n5-Tu3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUc-eF-gbd">
+                                <rect key="frame" x="16" y="199" width="288" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3G-9U-ORK">
+                                <rect key="frame" x="16" y="258" width="288" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editCoolDownButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="qQP-Gb-POr"/>
+                                    <segue destination="gEH-TK-srr" kind="show" id="yvo-vt-sVE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsZ-5p-bfx">
+                                <rect key="frame" x="16" y="304" width="288" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua4-ZE-V0E">
+                                <rect key="frame" x="16" y="363" width="288" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editRun:" destination="Ul0-28-xG6" eventType="touchUpInside" id="8Bw-6M-nmb"/>
+                                    <segue destination="gEH-TK-srr" kind="show" id="0iY-Aw-2wS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3y-fq-Jk4">
+                                <rect key="frame" x="16" y="441" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Let's Get Running!">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startRunButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="yh0-Ae-PfP"/>
+                                    <segue destination="dK1-ao-1de" kind="show" id="ock-fO-irC"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="6" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-YA-kvW">
                                 <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.91565436124801636" green="0.25641614198684692" blue="0.18527480959892273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Fu-ou-ogf"/>
+                    <connections>
+                        <outlet property="coolDownInfo" destination="XUc-eF-gbd" id="OL5-3j-tjm"/>
+                        <outlet property="runInfo" destination="OsZ-5p-bfx" id="fes-0m-HG6"/>
+                        <outlet property="warmUpInfo" destination="EVr-IK-2Jc" id="1eO-Ck-YHx"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgs-8Q-ZAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qcv-1X-QU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="-281"/>
+            <point key="canvasLocation" x="5327" y="-468"/>
+        </scene>
+        <!--Tenth View Controller-->
+        <scene sceneID="6to-CK-uXq">
+            <objects>
+                <viewController storyboardIdentifier="TenthViewController" id="gEH-TK-srr" customClass="TenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AeZ-ZJ-1ja"/>
+                        <viewControllerLayoutGuide type="bottom" id="fge-Rb-En8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tgG-5T-dYO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ms0-2y-tpS">
+                                <rect key="frame" x="113" y="49" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </pickerView>
+                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-SV-vfH">
+                                <rect key="frame" x="194" y="49" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wza-nu-CDK">
+                                <rect key="frame" x="184" y="219" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IsR-NU-JHE">
+                                <rect key="frame" x="16" y="49" width="100" height="360"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xs-u6-O8T">
+                                <rect key="frame" x="88" y="219" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6p-4w-dzN">
+                                <rect key="frame" x="262" y="219" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDA-lr-qIe">
+                                <rect key="frame" x="16" y="20" width="278" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7x9-ax-aFW">
+                                <rect key="frame" x="16" y="494" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Go Back With No Changes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ul0-28-xG6" kind="show" identifier="noChanges" id="KNO-fU-HUc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="saveChanges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-z3-Lf9">
+                                <rect key="frame" x="16" y="417" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="saveChanges"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Save Changes">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ul0-28-xG6" kind="show" identifier="saveChanges" id="6gw-CQ-wrZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="headerLabel" destination="nDA-lr-qIe" id="kdt-de-kLa"/>
+                        <outlet property="hourLabel" destination="6Xs-u6-O8T" id="EnD-yj-C3E"/>
+                        <outlet property="hourPicker" destination="IsR-NU-JHE" id="qFQ-R7-mHE"/>
+                        <outlet property="minuteLabel" destination="wza-nu-CDK" id="NLe-3e-oOz"/>
+                        <outlet property="minutePicker" destination="Ms0-2y-tpS" id="hGe-xN-YG5"/>
+                        <outlet property="secondLabel" destination="u6p-4w-dzN" id="Jj9-Jz-5sJ"/>
+                        <outlet property="secondPicker" destination="MCk-SV-vfH" id="Abh-ga-PB9"/>
+                        <segue destination="7BF-Ms-4j0" kind="unwind" identifier="" animates="NO" unwindAction="unwindToNinthViewControllerWithSegue:" id="Igm-Zb-068"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCm-hb-Yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7BF-Ms-4j0" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6523" y="-1432"/>
+        </scene>
+        <!--Eleventh View Controller-->
+        <scene sceneID="N9Z-Rr-RF7">
+            <objects>
+                <viewController storyboardIdentifier="EleventhViewController" id="dK1-ao-1de" customClass="EleventhViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="whu-3N-xwO"/>
+                        <viewControllerLayoutGuide type="bottom" id="pR2-fX-UoM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zyR-VO-aJO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnC-Kk-oJa">
+                                <rect key="frame" x="16" y="61" width="288" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bC-1W-F9F">
+                                <rect key="frame" x="16" y="409" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTimer:" destination="dK1-ao-1de" eventType="touchUpInside" id="8OJ-jy-Yyv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz7-qa-SxT">
+                                <rect key="frame" x="16" y="494" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopTimer:" destination="dK1-ao-1de" eventType="touchUpInside" id="sSe-RV-MDn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="time" destination="NnC-Kk-oJa" id="j5x-X4-Gm2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyq-nt-Itm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6872" y="-394"/>
+        </scene>
+        <!--EighthViewController-->
+        <scene sceneID="ri0-ot-UgQ">
+            <objects>
+                <viewController storyboardIdentifier="EigthViewController" title="EighthViewController" id="f68-aJ-g6a" customClass="EigthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k9P-e1-vLi"/>
+                        <viewControllerLayoutGuide type="bottom" id="3mE-Eq-pqG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="EigthViewController" id="rW1-oE-tMY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fp-sN-GHf">
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am the eigthviewcontroller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBv-ck-wUr">
+                                <rect key="frame" x="32" y="131" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qqe-Go-ZGd">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="eighthLabel" destination="gBv-ck-wUr" id="d31-3S-0yY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4k-4E-i7I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4607" y="1034"/>
+        </scene>
+        <!--SeventhViewController-->
+        <scene sceneID="Qt3-kx-Ofp">
+            <objects>
+                <viewController storyboardIdentifier="SeventhViewController" title="SeventhViewController" id="eFz-Pm-hww" customClass="SeventhViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f52-Rb-0iP"/>
+                        <viewControllerLayoutGuide type="bottom" id="0bf-kz-11Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EFc-CI-Zpc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I02-1A-0R7">
+                                <rect key="frame" x="-23" y="20" width="343" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am the seventhviewcontroller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbp-2m-l1P">
+                                <rect key="frame" x="16" y="134" width="274" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="VeH-9G-OPN">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="seventhLabel" destination="Cbp-2m-l1P" id="b2j-9a-kvA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mx-eX-ne9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4562" y="361"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="L9J-kj-eRp">
             <objects>
-                <viewController id="M9t-KK-1Jo" customClass="SecondViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="M9t-KK-1Jo" customClass="SecondViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BK1-Ce-eEB"/>
                         <viewControllerLayoutGuide type="bottom" id="PJo-4T-u7K"/>
@@ -183,7 +896,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="MM9-ao-UsF">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="MM9-ao-UsF">
                                 <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,6 +946,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textChange:" destination="M9t-KK-1Jo" eventType="editingChanged" id="AaP-gp-LGc"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,7 +969,13 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="448" y="-287"/>
+            <point key="canvasLocation" x="53" y="-287"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Hb-55-9xv"/>
+        <segue reference="NMt-q4-sVY"/>
+        <segue reference="oJ7-n5-Tu3"/>
+        <segue reference="6gw-CQ-wrZ"/>
+    </inferredMetricsTieBreakers>
 </document>

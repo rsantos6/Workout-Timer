@@ -33,7 +33,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     
     
-    
+    /* 
+     * This section below reveals the picker options if the
+     * user clicks yes they do want to do a warmup
+     */
     @IBAction func yesButton(_ sender: Any) {
         warmUpQ.isHidden = false
         picker.isHidden = false
@@ -53,11 +56,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var pickerData = [String](repeating: "", count: 60)
     var secondPickerData = [String](repeating: "", count: 60)
     var thirdPickerData = [String](repeating: "", count: 7)
-    var toggleI = String();
+    var usersName = String();
+    var warmupSeconds = 0
+    var warmupMinutes = 0
+    var warmupHours = 0
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         warmUpQ.isHidden = true
         picker.isHidden = true
@@ -70,10 +78,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         
-        if toggleI != "" {
-            toggleInstuction.text = "Hi "+toggleI+"! Are you doing a warmup?"
+        if usersName != "" {
+            toggleInstuction.text = "Welcome "+usersName+"! Are you doing a warmup?"
         } else {
-            toggleInstuction.text = "Are you planning on doing a warmup?"
+            toggleInstuction.text = "Welcome! Are you planning on doing a warmup?"
         }
         
         self.picker.delegate = self
@@ -149,19 +157,46 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+        if (pickerView.tag == 3){
+            warmupSeconds = row;
+            NSLog("Warmup Second Picker Change: " + String(row));
+        } else if (pickerView.tag == 2){
+            warmupMinutes = row;
+            NSLog("Warmup Minute Picker Change: " + String(row));
+        } else {
+            warmupHours = row
+            NSLog("Warmup Hour Picker Change: " + String(row));
+        }
+        
     }
     
     
+    /*
+     * This section below prepares for the transition to the next 
+     * controller, setting the "future" variable's value to the users name
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //var destViewController : ViewController = segue.destination as! ViewController
-        
-        
-        
-
-        NSLog("at prepare for segue ID = %@", segue.identifier ?? "CRAP")
-        
-        //DestViewController.toggleI = String(nameEnter.text!)
+        let destination : ThirdViewController = segue.destination as! ThirdViewController
+        destination.usersName = String(usersName)
+        destination.warmUpSeconds = warmupSeconds
+        destination.warmUpMinutes = warmupMinutes
+        destination.warmUpHours = warmupHours
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

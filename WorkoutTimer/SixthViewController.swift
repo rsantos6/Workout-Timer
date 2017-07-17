@@ -1,79 +1,45 @@
 //
-//  ThirdViewController.swift
+//  SixthViewController.swift
 //  WorkoutTimer
 //
-//  Created by Santos, Russell on 7/12/17.
+//  Created by Santos, Russell on 7/14/17.
 //  Copyright © 2017 theswiftproject. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ThirdViewController: UIViewController,UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class SixthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    @IBOutlet weak var coolDownQ: UILabel!
-    @IBOutlet weak var yesButton: UIButton!
-    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var sixthLabel: UILabel!
     @IBOutlet weak var hourPicker: UIPickerView!
-    @IBOutlet weak var minutePicker: UIPickerView!
-    @IBOutlet weak var secondPicker: UIPickerView!
-    @IBOutlet weak var hourLabel: UILabel!
-    @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var hiddenLabel: UILabel!
+    @IBOutlet weak var secondPicker: UIPickerView!
+    @IBOutlet weak var minuteLabel: UILabel!
+    @IBOutlet weak var minutePicker: UIPickerView!
+    @IBOutlet weak var hourLabel: UILabel!
     
     
-    
-    
-    @IBAction func yesButtonClicked(_ sender: UIButton) {
-        coolDownQ.isHidden = false
-        hourPicker.isHidden = false
-        minutePicker.isHidden = false
-        secondPicker.isHidden = false
-        hourLabel.isHidden = false
-        minuteLabel.isHidden = false
-        secondLabel.isHidden = false
-        yesButton.isHidden = true
-        noButton.isHidden = true
-        hiddenLabel.isHidden = true
-        continueButton.isHidden = false
-    }
-    
-    @IBAction func noButtonClicked(_ sender: UIButton) {
-    }
-    
-    var secondPickerData = [String](repeating: "", count: 60)
-    var minutePickerData = [String](repeating: "", count: 60)
-    var hourPickerData = [String](repeating: "", count: 7)
     var usersName = String()
     var warmUpSeconds = Int()
     var warmUpMinutes = Int()
     var warmUpHours = Int()
-    var cooldownSeconds = 0
-    var cooldownMinutes = 0
-    var cooldownHours = 0
+    var coolDownSeconds = Int()
+    var coolDownMinutes = Int()
+    var coolDownHours = Int()
     
-
+    var secondPickerData = [String](repeating: "", count: 60)
+    var minutePickerData = [String](repeating: "", count: 60)
+    var hourPickerData = [String](repeating: "", count: 7)
+    
+    var regularRunSeconds = 0
+    var regularRunMinutes = 0
+    var regularRunHours = 0
     
     
     override func viewDidLoad() {
+        NSLog("in class")
         super.viewDidLoad()
-        
-        coolDownQ.isHidden = true
-        secondPicker.isHidden = true
-        minutePicker.isHidden = true
-        hourPicker.isHidden = true
-        secondLabel.isHidden = true
-        minuteLabel.isHidden = true
-        hourLabel.isHidden = true
-        continueButton.isHidden = true
-        
-        if usersName != "" {
-            hiddenLabel.text = usersName + ", are you doing a cooldown?"
-        } else {
-            hiddenLabel.text = "Are you planning on doing a cooldown?"
-        }
         
         self.secondPicker.delegate = self
         self.secondPicker.dataSource = self
@@ -101,8 +67,7 @@ class ThirdViewController: UIViewController,UITextFieldDelegate, UIPickerViewDel
             hourPickerData[sec] = "0" + String(sec)
             sec += 1
         }
-        
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -144,40 +109,47 @@ class ThirdViewController: UIViewController,UITextFieldDelegate, UIPickerViewDel
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
         if (pickerView.tag == 3){
-            cooldownSeconds = row;
-            NSLog("Cooldown Second Picker Change: " + String(row));
+            regularRunSeconds = row;
+            NSLog("Regular Run Second Picker Change: " + String(row));
         } else if (pickerView.tag == 2){
-            cooldownMinutes = row;
-            NSLog("Cooldown Minute Picker Change: " + String(row));
+            regularRunMinutes = row;
+            NSLog("Regular Run Minute Picker Change: " + String(row));
         } else {
-            cooldownHours = row
-            NSLog("Cooldown Hour Picker Change: " + String(row));
+            regularRunHours = row
+            NSLog("Regular Run Hour Picker Change: " + String(row));
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination : FourthViewController = segue.destination as! FourthViewController
+        let destination : NinthViewController = segue.destination as! NinthViewController
+        NSLog("in segue")
         destination.usersName = String(usersName)
         destination.warmUpSeconds = warmUpSeconds
         destination.warmUpMinutes = warmUpMinutes
         destination.warmUpHours = warmUpHours
-        destination.coolDownSeconds = cooldownSeconds
-        destination.coolDownMinutes = cooldownMinutes
-        destination.coolDownHours = cooldownHours
+        destination.coolDownSeconds = coolDownSeconds
+        destination.coolDownMinutes = coolDownMinutes
+        destination.coolDownHours = coolDownHours
+        destination.fullRunSeconds = regularRunSeconds
+        destination.fullRunMinutes = regularRunMinutes
+        destination.fullRunHours = regularRunHours
+    }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (regularRunSeconds == 0) && (regularRunMinutes == 0) && (regularRunHours == 0){
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Please specify running time", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return false
+        }
+        return true
     }
 
-
+    
+    
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
