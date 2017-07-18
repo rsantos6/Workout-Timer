@@ -26,9 +26,18 @@ class FifthViewController: UIViewController  {
             questionCount -= 1
             multipleQuestionLabel.text = "Are you running without any rest/jogging period?"
             backButton.isHidden = true
+            
+            yesButton.isHidden = false
+            yesButton2.isHidden = true
+            yesButton3.isHidden = true
+            
         } else if questionCount == 3{
             questionCount -= 1
             multipleQuestionLabel.text = "Are you running with jogging intervals?"
+            
+            yesButton.isHidden = true
+            yesButton2.isHidden = false
+            yesButton3.isHidden = true
         }
     }
     

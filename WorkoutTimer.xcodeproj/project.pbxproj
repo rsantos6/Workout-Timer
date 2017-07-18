@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D547BD8C1F1E4C5C00A68460 /* countdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = D547BD8B1F1E4C5C00A68460 /* countdown.wav */; };
 		D55041F51F1CE14200C72B45 /* NinthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55041F41F1CE14200C72B45 /* NinthViewController.swift */; };
 		D55041F71F1D0BBA00C72B45 /* TenthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55041F61F1D0BBA00C72B45 /* TenthViewController.swift */; };
 		D55041F91F1D106A00C72B45 /* EleventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55041F81F1D106A00C72B45 /* EleventhViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D547BD8B1F1E4C5C00A68460 /* countdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown.wav; sourceTree = "<group>"; };
 		D55041F41F1CE14200C72B45 /* NinthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinthViewController.swift; sourceTree = "<group>"; };
 		D55041F61F1D0BBA00C72B45 /* TenthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenthViewController.swift; sourceTree = "<group>"; };
 		D55041F81F1D106A00C72B45 /* EleventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EleventhViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		D5632FD21F14F0F90060084F /* WorkoutTimer */ = {
 			isa = PBXGroup;
 			children = (
+				D547BD8B1F1E4C5C00A68460 /* countdown.wav */,
 				D55041FC1F1D3B6200C72B45 /* change-pace.wav */,
 				D55041FA1F1D361B00C72B45 /* bugle.wav */,
 				D5632FD31F14F0F90060084F /* AppDelegate.swift */,
@@ -272,6 +275,7 @@
 				D55041FD1F1D3B6200C72B45 /* change-pace.wav in Resources */,
 				D5632FDE1F14F0F90060084F /* LaunchScreen.storyboard in Resources */,
 				D5632FDB1F14F0F90060084F /* Assets.xcassets in Resources */,
+				D547BD8C1F1E4C5C00A68460 /* countdown.wav in Resources */,
 				D5632FD91F14F0F90060084F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

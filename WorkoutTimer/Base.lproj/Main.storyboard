@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNr-pm-ZGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561.875" y="-378.16901408450707"/>
+            <point key="canvasLocation" x="4641" y="-436"/>
         </scene>
         <!--Ninth View Controller-->
         <scene sceneID="RF0-c7-RCl">
@@ -647,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcv-1X-QU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5327" y="-468"/>
+            <point key="canvasLocation" x="5567" y="-394"/>
         </scene>
         <!--Tenth View Controller-->
         <scene sceneID="6to-CK-uXq">
@@ -758,47 +758,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnC-Kk-oJa">
-                                <rect key="frame" x="16" y="61" width="288" height="176"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnC-Kk-oJa">
+                                <rect key="frame" x="0.0" y="61" width="320" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bC-1W-F9F">
-                                <rect key="frame" x="16" y="409" width="288" height="54"/>
+                                <rect key="frame" x="16" y="301" width="288" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" title="Begin Countdown">
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startTimer:" destination="dK1-ao-1de" eventType="touchUpInside" id="8OJ-jy-Yyv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz7-qa-SxT">
-                                <rect key="frame" x="16" y="494" width="288" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azD-bq-1uH">
+                                <rect key="frame" x="16" y="491" width="288" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Stop">
+                                <state key="normal" title="Pause">
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="stopTimer:" destination="dK1-ao-1de" eventType="touchUpInside" id="sSe-RV-MDn"/>
+                                    <action selector="backButtonAction:" destination="Vb2-lh-NPs" eventType="touchUpInside" id="i1U-8d-Gs6"/>
+                                    <action selector="pauseTimer:" destination="dK1-ao-1de" eventType="touchUpInside" id="9Mc-f9-H3g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz7-qa-SxT">
+                                <rect key="frame" x="16" y="396" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="End">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="endRun:" destination="dK1-ao-1de" eventType="touchUpInside" id="08B-Rb-O0S"/>
+                                    <segue destination="Vb2-lh-NPs" kind="show" identifier="endWorkout" id="0cW-5T-txG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="resumeButton" destination="5bC-1W-F9F" id="c1Z-p5-tf6"/>
                         <outlet property="time" destination="NnC-Kk-oJa" id="j5x-X4-Gm2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyq-nt-Itm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6872" y="-394"/>
+            <point key="canvasLocation" x="6871.875" y="-394.01408450704224"/>
         </scene>
         <!--EighthViewController-->
         <scene sceneID="ri0-ot-UgQ">
@@ -973,9 +988,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Hb-55-9xv"/>
         <segue reference="NMt-q4-sVY"/>
-        <segue reference="oJ7-n5-Tu3"/>
-        <segue reference="6gw-CQ-wrZ"/>
+        <segue reference="3Hb-55-9xv"/>
+        <segue reference="0cW-5T-txG"/>
+        <segue reference="tqn-eX-oOH"/>
+        <segue reference="0iY-Aw-2wS"/>
     </inferredMetricsTieBreakers>
 </document>
