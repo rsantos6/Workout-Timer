@@ -1,8 +1,8 @@
 //
-//  EleventhViewController.swift
+//  TwelfthViewController.swift
 //  WorkoutTimer
 //
-//  Created by Santos, Russell on 7/17/17.
+//  Created by Santos, Russell on 7/20/17.
 //  Copyright © 2017 theswiftproject. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class EleventhViewController: UIViewController {
+class TwelfthViewController: UIViewController {
     
     var blastOffHasOccured = false
     var countDownNum = 10
@@ -19,6 +19,7 @@ class EleventhViewController: UIViewController {
     var countDown = Timer()
     var timer = Timer()
     var coolDownTimer = Timer()
+    var jogCounter = Timer()
     
     var melody = AVAudioPlayer()
     var audioPlayer = AVAudioPlayer()
@@ -36,16 +37,19 @@ class EleventhViewController: UIViewController {
     
     var inCountDown = false
     var inPause = false
+    var resuming = false
     
     var running = true
     var paused = false
     
-    var beginWorkoutIn = false
-    var beginWarmUpIn = false
-    var beginCoolDownIn = false
-    var runEndsIn = false
+    var goPickUp = true
     
-    
+    var tempPickUpHours = 0
+    var tempPickUpMinutes = 0
+    var tempPickUpSeconds = 0
+    var tempJogHours = 0
+    var tempJogMinutes = 0
+    var tempJogSeconds = 0
     
     var usersName = String()
     var warmUpSeconds = Int()
@@ -54,17 +58,29 @@ class EleventhViewController: UIViewController {
     var coolDownSeconds = Int()
     var coolDownMinutes = Int()
     var coolDownHours = Int()
-    var fullRunSeconds = Int()
-    var fullRunMinutes = Int()
-    var fullRunHours = Int()
+    var numberOfIntervals = Int()
+    var pickUpHours = Int()
+    var pickUpMinutes = Int()
+    var pickUpSeconds = Int()
+    var jogHours = Int()
+    var jogMinutes = Int()
+    var jogSeconds = Int()
+        
+    var beginWorkoutIn = false
+    var beginWarmUpIn = false
+    var beginCoolDownIn = false
+    var runEndsIn = false
     
     
     
     
+
     @IBOutlet weak var resumeButton: UIButton!
+   
+    
     
     @IBOutlet weak var time: UILabel!
-  
+    
     
     //when End button is clicked go back to the edit page
     @IBAction func endRun(_ sender: UIButton) {
@@ -84,22 +100,20 @@ class EleventhViewController: UIViewController {
             audioPlayer.stop()
         }
         if blastOff.isPlaying {
-           blastOff.stop()
+            blastOff.stop()
         }
         if coolDownMelody.isPlaying {
-           coolDownMelody.stop()
+            coolDownMelody.stop()
         }
         
         fullCounter.invalidate()
         countDown.invalidate()
         timer.invalidate()
         coolDownTimer.invalidate()
-        
+
     }
     
     
-    
-    //once the user clicks the Begin Countdown/Resume button
     @IBAction func startTimer(_ sender: UIButton) {
         
         if (!inCountDown) {
@@ -108,9 +122,9 @@ class EleventhViewController: UIViewController {
             if (!blastOffHasOccured) {
                 inCountDown = true
                 //use the countdown timer
-                countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.countDownTimer), userInfo: nil, repeats: true)
+                countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.countDownTimer), userInfo: nil, repeats: true)
             }
-            
+                
                 
                 //if the user is hitting the now Resume button and therefore
                 //the countdown has already happened, resume the warmup timer
@@ -131,6 +145,7 @@ class EleventhViewController: UIViewController {
                         
                         let synthesizer = AVSpeechSynthesizer()
                         synthesizer.speak(utterance)
+                        resuming = true
                         beginWarmUp()
                         
                     } else if workoutInProgress {
@@ -141,6 +156,7 @@ class EleventhViewController: UIViewController {
                         
                         let synthesizer = AVSpeechSynthesizer()
                         synthesizer.speak(utterance)
+                        resuming = true
                         beginWorkout()
                         
                     } else if ((doingCoolDown) && (!workoutInProgress) && (!doingWarmUp)) {
@@ -151,6 +167,7 @@ class EleventhViewController: UIViewController {
                         
                         let synthesizer = AVSpeechSynthesizer()
                         synthesizer.speak(utterance)
+                        resuming = true
                         beginCoolDown()
                     }
                     
@@ -167,11 +184,15 @@ class EleventhViewController: UIViewController {
         }
     }
     
+    
+    
     func beginWarmUp() {
-   
+        
+        resuming = false
+        
         resumeButton.setTitle("Resume", for: .normal)
         //creates the timer object that is connected to the counter function
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.counter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.counter), userInfo: nil, repeats: true)
         
         //if the bugle sound hasn't been played (the bugle flag is false)
         if !melodyPlayed {
@@ -189,6 +210,8 @@ class EleventhViewController: UIViewController {
             synthesizer.speak(utterance)
         }
     }
+    
+    
     
     @IBAction func pauseTimer(_ sender: UIButton) {
         
@@ -261,7 +284,7 @@ class EleventhViewController: UIViewController {
                     let synthesizer = AVSpeechSynthesizer()
                     synthesizer.speak(utterance)
                 }
-               
+                
             }
             
             
@@ -270,11 +293,13 @@ class EleventhViewController: UIViewController {
             timer.invalidate()
             fullCounter.invalidate()
             coolDownTimer.invalidate()
-
+            jogCounter.invalidate()
+            
         }
     }
-   
-   
+    
+    
+    
     func countDownTimer () {
         //countdown for the warmup
         if doingWarmUp {
@@ -292,6 +317,7 @@ class EleventhViewController: UIViewController {
                 
                 beginWarmUpIn = true
             }
+            
             
             //play the countdown soundtrack
             blastOff.play()
@@ -341,6 +367,7 @@ class EleventhViewController: UIViewController {
                 
                 beginWorkoutIn = true
             }
+           
             
             //play the countdown soundtrack
             blastOff.play()
@@ -390,6 +417,7 @@ class EleventhViewController: UIViewController {
                 beginCoolDownIn = true
             }
             
+            
             //play the countdown soundtrack
             blastOff.play()
             //this is the countdown that shows on the label
@@ -420,7 +448,7 @@ class EleventhViewController: UIViewController {
                 //begin the warmup (eventually workout option as well)
                 beginCoolDown()
             }
-
+            
             //no cooldown and workout is over
         } else {
             
@@ -438,6 +466,7 @@ class EleventhViewController: UIViewController {
                 
                 runEndsIn = true
             }
+            
             
             //play the countdown soundtrack
             blastOff.play()
@@ -493,8 +522,10 @@ class EleventhViewController: UIViewController {
                 countDown.invalidate()
                 timer.invalidate()
                 coolDownTimer.invalidate()
+                jogCounter.invalidate()
                 
-                performSegue(withIdentifier: "endWorkout", sender: nil)
+                
+                performSegue(withIdentifier: "endWorkoutTwo", sender: nil)
             }
         }
     }
@@ -505,7 +536,7 @@ class EleventhViewController: UIViewController {
         if doingWarmUp {
             //adjust the font
             time.font = time.font.withSize(30)
-             time.text = "Begin Warmup"
+            time.text = "Begin Warmup"
             beginWarmUp()
             
             
@@ -525,7 +556,7 @@ class EleventhViewController: UIViewController {
             //begin the warmup (eventually workout option as well)
             time.text = "Begin Cooldown"
             beginCoolDown()
- 
+            
             
             //no cooldown and workout is over
         } else {
@@ -536,21 +567,21 @@ class EleventhViewController: UIViewController {
             
             time.text = "Run Completed!"
             //stop the countdown timer
-
+            
             //set the countdown flag to true so it isn't played again
             //once the button turns to resume
             blastOffHasOccured = true
-                
+            
             //also tell user that the workout is ending
             let utterance = AVSpeechUtterance(string: "Run completed! Awesome work " + usersName + "!")
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
             utterance.rate = 0.5
-                
+            
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
             
             completedMelody.play()
-                
+            
             if melody.isPlaying {
                 melody.stop()
             }
@@ -563,13 +594,13 @@ class EleventhViewController: UIViewController {
             if coolDownMelody.isPlaying {
                 coolDownMelody.stop()
             }
-                
+            
             fullCounter.invalidate()
             countDown.invalidate()
             timer.invalidate()
             coolDownTimer.invalidate()
-                
-            performSegue(withIdentifier: "endWorkout", sender: nil)
+            
+            performSegue(withIdentifier: "endWorkoutTwo", sender: nil)
         }
     }
     
@@ -648,7 +679,7 @@ class EleventhViewController: UIViewController {
             doingWarmUp = false
             workoutInProgress = true
             melodyPlayed = false
-            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.countDownTimer), userInfo: nil, repeats: true)
+            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.countDownTimer), userInfo: nil, repeats: true)
         } else if (warmUpSeconds == 0) && (warmUpMinutes == 0) && (warmUpHours == 0) {
             timer.invalidate()
             doingWarmUp = false
@@ -664,10 +695,38 @@ class EleventhViewController: UIViewController {
     }
     
     func beginWorkout() {
-    
+        
         resumeButton.setTitle("Resume", for: .normal)
-        //creates the timer object that is connected to the counter function
-        fullCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.workoutCounter), userInfo: nil, repeats: true)
+        if goPickUp {
+            
+            let utterance = AVSpeechUtterance(string: "Start pick up now!")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.5
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+            
+            if (!resuming){
+               numberOfIntervals = numberOfIntervals - 1
+            }
+            
+            resuming = false
+            
+            //creates the timer object that is connected to the counter function
+            fullCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.workoutCounter), userInfo: nil, repeats: true)
+            
+        } else if !goPickUp {
+            
+            let utterance = AVSpeechUtterance(string: "Start jogging now!")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.5
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+            
+            //creates the timer object that is connected to the counter function
+            jogCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.joggingCounter), userInfo: nil, repeats: true)
+        }
         
         //if the bugle sound hasn't been played (the bugle flag is false)
         if !buglePlayed {
@@ -687,10 +746,11 @@ class EleventhViewController: UIViewController {
     }
     
     func beginCoolDown() {
-    
+        
+        resuming = false
         resumeButton.setTitle("Resume", for: .normal)
         //creates the timer object that is connected to the counter function
-        coolDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.coolDownCounter), userInfo: nil, repeats: true)
+        coolDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.coolDownCounter), userInfo: nil, repeats: true)
         
         //if the bugle sound hasn't been played (the bugle flag is false)
         if !coolDownMelodyPlayed{
@@ -779,13 +839,13 @@ class EleventhViewController: UIViewController {
         time.text = timerText
         
         //once the time runs out stop
-        if (coolDownSeconds == 11) && (coolDownMinutes == 0) && (coolDownHours == 0){
+        if (coolDownSeconds == 11) && (coolDownMinutes == 0) && (coolDownHours == 0) {
             countDownNum = 10
             fullCounter.invalidate()
             workoutInProgress = false
             melodyPlayed = false
             doingCoolDown = false
-            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.countDownTimer), userInfo: nil, repeats: true)
+            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.countDownTimer), userInfo: nil, repeats: true)
         } else if (coolDownSeconds == 0) && (coolDownMinutes == 0) && (coolDownHours == 0) {
             fullCounter.invalidate()
             workoutInProgress = false
@@ -809,80 +869,199 @@ class EleventhViewController: UIViewController {
         
         //if there is warmup hours then add it and an extra zero for appearance to the String
         //followed by a colon
-        if fullRunHours > 0 {
-            timerText = "0" + String(fullRunHours) + ":"
+        if pickUpHours > 0 {
+            timerText = "0" + String(pickUpHours) + ":"
         }
         
         //if warmup minutes exist and are less than 10
-        if (fullRunMinutes > 0) && (fullRunMinutes < 10) {
+        if (pickUpMinutes > 0) && (pickUpMinutes < 10) {
             //add a zero in front for appearance and a colon at the end
-            timerText = timerText + "0" + String(fullRunMinutes) + ":"
+            timerText = timerText + "0" + String(pickUpMinutes) + ":"
             
             //if warmup minutes is greater than or equal to 10
-        } else if (fullRunMinutes >= 10) {
+        } else if (pickUpMinutes >= 10) {
             //add it to the String without the extra zero, putting a colon at the end
-            timerText = timerText + String(fullRunMinutes) + ":"
+            timerText = timerText + String(pickUpMinutes) + ":"
             
             //if warmup minutes are zero, but didn't just hit zero
             //as seconds are not zero, and hours are greater than 0
-        } else if (fullRunMinutes == 0) && (fullRunHours != 0) && (fullRunSeconds != 0){
+        } else if (pickUpMinutes == 0) && (pickUpHours != 0) && (pickUpSeconds != 0){
             //add two zeros to the String followed by a colon
             timerText = timerText + "00" + ":"
         }
         
         //if seconds are between 0 and 10
-        if (fullRunSeconds > 0) && (fullRunSeconds < 10) {
+        if (pickUpSeconds > 0) && (pickUpSeconds < 10) {
             //add a zero in front for appearance
-            timerText = timerText + "0" + String(fullRunSeconds)
+            timerText = timerText + "0" + String(pickUpSeconds)
             
             //if seconds are greater than or equal to 10
-        } else if (fullRunSeconds >= 10) {
+        } else if (pickUpSeconds >= 10) {
             //add it to the String
-            timerText = timerText + String(fullRunSeconds)
+            timerText = timerText + String(pickUpSeconds)
         }
         
         //if seconds just hit 0 and there are more minutes remaining
-        if (fullRunSeconds == 0) && (fullRunMinutes > 0) {
+        if (pickUpSeconds == 0) && (pickUpMinutes > 0) {
             //put a zero in front the zero that will be seconds
-            timerText = timerText + "0" + String(fullRunSeconds)
+            timerText = timerText + "0" + String(pickUpSeconds)
             //subtract 1 from minutes
-            fullRunMinutes -= 1
+            pickUpMinutes -= 1
             //set seconds to 60, although it will display 00 at the time and then fall to 59
-            fullRunSeconds = 60
+            pickUpSeconds = 60
             
             //if seconds just hit 0 and minutes just hit 0, but there are more hours
-        } else if (fullRunSeconds == 0) && (fullRunMinutes == 0) && (fullRunHours > 0){
+        } else if (pickUpSeconds == 0) && (pickUpMinutes == 0) && (pickUpHours > 0){
             //put zeros in front of the seconds and minutes
-            timerText = timerText + "0" + String(fullRunMinutes) + ":"
-            timerText = timerText + "0" + String(fullRunSeconds)
+            timerText = timerText + "0" + String(pickUpMinutes) + ":"
+            timerText = timerText + "0" + String(pickUpSeconds)
             //subtract 1 from the hours
-            fullRunHours -= 1
+            pickUpHours -= 1
             //set the seconds to 60, although it will display 00 at the time and then fall to 59
-            fullRunSeconds = 60
+            pickUpSeconds = 60
             //set minutes to 59, although it will display 00 at the time
             //this is ok since it's only seconds that are decremented
-            fullRunMinutes = 59
+            pickUpMinutes = 59
+        }
+        
+        //once the time runs out stop
+        if (pickUpSeconds == 11) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals == 0) {
+            countDownNum = 10
+            fullCounter.invalidate()
+            workoutInProgress = false
+            melodyPlayed = false
+            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.countDownTimer), userInfo: nil, repeats: true)
+            
+        } else if (pickUpSeconds == 0) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals == 0) {
+            fullCounter.invalidate()
+            workoutInProgress = false
+            melodyPlayed = false
+            alternateCountDownTimer()
+            
+        } else if (pickUpSeconds == 0) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals > 0) {
+            timerText = "Begin Jogging"
+            time.text = "Begin Jogging"
+            fullCounter.invalidate()
+            goPickUp = false
+            pickUpHours = tempPickUpHours
+            pickUpMinutes = tempPickUpMinutes
+            pickUpSeconds = tempPickUpSeconds
+            beginWorkout()
+            
+        } else if (pickUpSeconds == 10) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals > 0) {
+            let utterance = AVSpeechUtterance(string: "Jog in ten seconds!")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.5
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
         }
         
         //set label to the String with the hours, minutes, and seconds value displayed
         time.text = timerText
         
-        //once the time runs out stop
-        if (fullRunSeconds == 11) && (fullRunMinutes == 0) && (fullRunHours == 0){
-            countDownNum = 10
-            fullCounter.invalidate()
-            workoutInProgress = false
-            melodyPlayed = false
-            countDown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(EleventhViewController.countDownTimer), userInfo: nil, repeats: true)
-        } else if (fullRunSeconds == 0) && (fullRunMinutes == 0) && (fullRunHours == 0) {
-            fullCounter.invalidate()
-            workoutInProgress = false
-            melodyPlayed = false
-            alternateCountDownTimer()
-        }
+
+        
+        
         
         //decrement the seconds
-        fullRunSeconds -= 1
+        pickUpSeconds -= 1
+        
+    }
+    
+    
+    
+    func joggingCounter () {
+        //set the the font to be larger when the timer is running
+        time.font = time.font.withSize(60)
+        
+        //add on to this String for time
+        var timerText = ""
+        
+        //if there is warmup hours then add it and an extra zero for appearance to the String
+        //followed by a colon
+        if jogHours > 0 {
+            timerText = "0" + String(jogHours) + ":"
+        }
+        
+        //if warmup minutes exist and are less than 10
+        if (pickUpMinutes > 0) && (pickUpMinutes < 10) {
+            //add a zero in front for appearance and a colon at the end
+            timerText = timerText + "0" + String(jogMinutes) + ":"
+            
+            //if warmup minutes is greater than or equal to 10
+        } else if (jogMinutes >= 10) {
+            //add it to the String without the extra zero, putting a colon at the end
+            timerText = timerText + String(jogMinutes) + ":"
+            
+            //if warmup minutes are zero, but didn't just hit zero
+            //as seconds are not zero, and hours are greater than 0
+        } else if (jogMinutes == 0) && (jogHours != 0) && (jogSeconds != 0){
+            //add two zeros to the String followed by a colon
+            timerText = timerText + "00" + ":"
+        }
+        
+        //if seconds are between 0 and 10
+        if (jogSeconds > 0) && (jogSeconds < 10) {
+            //add a zero in front for appearance
+            timerText = timerText + "0" + String(jogSeconds)
+            
+            //if seconds are greater than or equal to 10
+        } else if (jogSeconds >= 10) {
+            //add it to the String
+            timerText = timerText + String(jogSeconds)
+        }
+        
+        //if seconds just hit 0 and there are more minutes remaining
+        if (jogSeconds == 0) && (pickUpMinutes > 0) {
+            //put a zero in front the zero that will be seconds
+            timerText = timerText + "0" + String(jogSeconds)
+            //subtract 1 from minutes
+            jogMinutes -= 1
+            //set seconds to 60, although it will display 00 at the time and then fall to 59
+            jogSeconds = 60
+            
+            //if seconds just hit 0 and minutes just hit 0, but there are more hours
+        } else if (jogSeconds == 0) && (jogMinutes == 0) && (jogHours > 0){
+            //put zeros in front of the seconds and minutes
+            timerText = timerText + "0" + String(jogMinutes) + ":"
+            timerText = timerText + "0" + String(jogSeconds)
+            //subtract 1 from the hours
+            jogHours -= 1
+            //set the seconds to 60, although it will display 00 at the time and then fall to 59
+            jogSeconds = 60
+            //set minutes to 59, although it will display 00 at the time
+            //this is ok since it's only seconds that are decremented
+            jogMinutes = 59
+        }
+        
+        //once the time runs out stop
+        if (jogSeconds == 0) && (jogMinutes == 0) && (jogHours == 0) {
+            timerText = "Begin Pick Up"
+            time.text = "Begin Pick Up"
+            jogCounter.invalidate()
+            goPickUp = true
+            jogHours = tempJogHours
+            jogMinutes = tempJogMinutes
+            jogSeconds = tempJogSeconds
+            beginWorkout()
+            
+        } else if (jogSeconds == 10) && (jogMinutes == 0) && (jogHours == 0) {
+            let utterance = AVSpeechUtterance(string: "Pick up in ten seconds!")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.5
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
+        
+        //set label to the String with the hours, minutes, and seconds value displayed
+        time.text = timerText
+        
+
+        
+        //decrement the seconds
+        jogSeconds -= 1
         
     }
 
@@ -890,10 +1069,16 @@ class EleventhViewController: UIViewController {
     
     
     override func viewDidLoad() {
-     
         super.viewDidLoad()
         
         whatEvents()
+        
+        tempPickUpHours = pickUpHours
+        tempPickUpMinutes = pickUpMinutes
+        tempPickUpSeconds = pickUpSeconds + 1
+        tempJogHours = jogHours
+        tempJogMinutes = jogMinutes
+        tempJogSeconds = jogSeconds + 1
         
         time.font = time.font.withSize(30)
         
@@ -970,20 +1155,21 @@ class EleventhViewController: UIViewController {
     
     
     //This segues back to the FifthViewController where the user decides what
-    //type of run they want to do. Decided that's the best point in the app to 
+    //type of run they want to do. Decided that's the best point in the app to
     //send them to because they are still able to edit everything from that point on
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "endWorkout" {
-                let destination : FifthViewController = segue.destination as! FifthViewController
-                NSLog("End Workout")
-                destination.usersName = String(usersName)
-                destination.warmUpSeconds = warmUpSeconds
-                destination.warmUpMinutes = warmUpMinutes
-                destination.warmUpHours = warmUpHours
-                destination.coolDownSeconds = coolDownSeconds
-                destination.coolDownMinutes = coolDownMinutes
-                destination.coolDownHours = coolDownHours
+        if segue.identifier == "endWorkoutTwo" {
+            let destination : FifthViewController = segue.destination as! FifthViewController
+            NSLog("End Workout")
+            destination.usersName = String(usersName)
+            destination.warmUpSeconds = warmUpSeconds
+            destination.warmUpMinutes = warmUpMinutes
+            destination.warmUpHours = warmUpHours
+            destination.coolDownSeconds = coolDownSeconds
+            destination.coolDownMinutes = coolDownMinutes
+            destination.coolDownHours = coolDownHours
         }
     }
 }
+
 

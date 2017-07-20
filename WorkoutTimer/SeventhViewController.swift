@@ -214,6 +214,50 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination : TwelfthViewController = segue.destination as! TwelfthViewController
+        NSLog("in segue")
+        destination.usersName = String(usersName)
+        destination.warmUpSeconds = warmUpSeconds
+        destination.warmUpMinutes = warmUpMinutes
+        destination.warmUpHours = warmUpHours
+        destination.coolDownSeconds = coolDownSeconds
+        destination.coolDownMinutes = coolDownMinutes
+        destination.coolDownHours = coolDownHours
+        destination.numberOfIntervals = numberOfIntervals
+        destination.pickUpHours = onIntervalHours
+        destination.pickUpMinutes = onIntervalMinutes
+        destination.pickUpSeconds = onIntervalSeconds
+        destination.jogHours = jogHours
+        destination.jogMinutes = jogMinutes
+        destination.jogSeconds = jogSeconds
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if ((onIntervalHours == 0) && (onIntervalMinutes == 0) && (onIntervalSeconds == 0)){
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Please specify pick up length", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return false
+            
+        } else if ((jogHours == 0) && (jogMinutes == 0) && (jogSeconds == 0)){
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Please specify jogging length", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return false
+            
+        }
+        
+        return true
+    }
+
 }
 
 
