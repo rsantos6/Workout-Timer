@@ -45,7 +45,7 @@ class ThirdViewController: UIViewController,UITextFieldDelegate, UIPickerViewDel
     
     var secondPickerData = [String](repeating: "", count: 60)
     var minutePickerData = [String](repeating: "", count: 60)
-    var hourPickerData = [String](repeating: "", count: 7)
+    var hourPickerData = [String](repeating: "", count: 6)
     var usersName = String()
     var warmUpSeconds = Int()
     var warmUpMinutes = Int()

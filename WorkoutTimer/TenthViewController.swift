@@ -35,7 +35,7 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var secondPickerData = [String](repeating: "", count: 60)
     var minutePickerData = [String](repeating: "", count: 60)
-    var hourPickerData = [String](repeating: "", count: 7)
+    var hourPickerData = [String](repeating: "", count: 6)
     
     var editedSeconds = 0
     var editedMinutes = 0

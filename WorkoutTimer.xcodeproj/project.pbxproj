@@ -22,6 +22,7 @@
 		D5632FF41F14F0F90060084F /* WorkoutTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5632FF31F14F0F90060084F /* WorkoutTimerUITests.swift */; };
 		D56330021F1539E80060084F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56330011F1539E80060084F /* SecondViewController.swift */; };
 		D56D25491F20CF07001BAB30 /* TwelfthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56D25481F20CF07001BAB30 /* TwelfthViewController.swift */; };
+		D56D254B1F2116EA001BAB30 /* FourteenthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56D254A1F2116EA001BAB30 /* FourteenthViewController.swift */; };
 		D5831B301F166589009F4F5F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5831B2F1F166589009F4F5F /* ThirdViewController.swift */; };
 		D5C8E1E31F1917CC00EF17B7 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1E21F1917CC00EF17B7 /* FourthViewController.swift */; };
 		D5C8E1E71F1927AA00EF17B7 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1E61F1927AA00EF17B7 /* FifthViewController.swift */; };
@@ -71,6 +72,7 @@
 		D5632FF51F14F0F90060084F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D56330011F1539E80060084F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D56D25481F20CF07001BAB30 /* TwelfthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwelfthViewController.swift; sourceTree = "<group>"; };
+		D56D254A1F2116EA001BAB30 /* FourteenthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourteenthViewController.swift; sourceTree = "<group>"; };
 		D5831B2F1F166589009F4F5F /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		D5C8E1E21F1917CC00EF17B7 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		D5C8E1E61F1927AA00EF17B7 /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				D55041F61F1D0BBA00C72B45 /* TenthViewController.swift */,
 				D55041F81F1D106A00C72B45 /* EleventhViewController.swift */,
 				D56D25481F20CF07001BAB30 /* TwelfthViewController.swift */,
+				D56D254A1F2116EA001BAB30 /* FourteenthViewController.swift */,
 			);
 			path = WorkoutTimer;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				D5C8E1EB1F1949E800EF17B7 /* SeventhViewController.swift in Sources */,
 				D56330021F1539E80060084F /* SecondViewController.swift in Sources */,
 				D5632FD61F14F0F90060084F /* ViewController.swift in Sources */,
+				D56D254B1F2116EA001BAB30 /* FourteenthViewController.swift in Sources */,
 				D5831B301F166589009F4F5F /* ThirdViewController.swift in Sources */,
 				D5632FD41F14F0F90060084F /* AppDelegate.swift in Sources */,
 				D55041F51F1CE14200C72B45 /* NinthViewController.swift in Sources */,

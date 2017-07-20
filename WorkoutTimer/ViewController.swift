@@ -55,7 +55,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var pickerData = [String](repeating: "", count: 60)
     var secondPickerData = [String](repeating: "", count: 60)
-    var thirdPickerData = [String](repeating: "", count: 7)
+    var thirdPickerData = [String](repeating: "", count: 6)
     var usersName = String();
     var warmupSeconds = 0
     var warmupMinutes = 0

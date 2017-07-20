@@ -1,19 +1,22 @@
 //
-//  SeventhViewController.swift
+//  FourteenthViewController.swift
 //  WorkoutTimer
 //
-//  Created by Santos, Russell on 7/14/17.
+//  Created by Santos, Russell on 7/20/17.
 //  Copyright © 2017 theswiftproject. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    @IBOutlet weak var seventhLabel: UILabel!
+
+    
+
     
     @IBOutlet weak var intervalPicker: UIPickerView!
+    @IBOutlet weak var secondIntervalPicker: UIPickerView!
     
     @IBOutlet weak var intervalHourPicker: UIPickerView!
     @IBOutlet weak var intervalMinutePicker: UIPickerView!
@@ -22,13 +25,84 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var jogHourPicker: UIPickerView!
     @IBOutlet weak var jogMinutePicker: UIPickerView!
     @IBOutlet weak var jogSecondPicker: UIPickerView!
+  
+    @IBOutlet weak var intervalIncrementButton: UIButton!
+    @IBOutlet weak var intervalDecrementButton: UIButton!
+    
+    @IBOutlet weak var restIncrementButton: UIButton!
+    @IBOutlet weak var restDecrementButton: UIButton!
+    
     
     @IBOutlet weak var pickUpLabel: UILabel!
     @IBOutlet weak var restLabel: UILabel!
+  
+    var upperBoundInterval = 0
     
-    @IBAction func customizeAction(_ sender: UIButton) {
-        toCustomize = true
+    @IBAction func intervalIncrement(_ sender: UIButton) {
+        
+        if intervalIncrementIsClicked {
+            intervalIncrementIsClicked = false
+            intervalIncrementButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            intervalDecrementButton.backgroundColor = UIColor(red: 13/255, green: 143/255, blue: 0/255, alpha: 1)
+            
+        } else {
+            intervalIncrementIsClicked = true
+            intervalDecrementIsClicked = false
+            intervalIncrementButton.backgroundColor = UIColor.red
+            intervalDecrementButton.backgroundColor = UIColor.gray
+        }
     }
+    
+    
+    @IBAction func intervalDecrement(_ sender: UIButton) {
+        
+        if intervalDecrementIsClicked {
+            intervalDecrementIsClicked = false
+            intervalDecrementButton.backgroundColor = UIColor(red: 13/255, green: 143/255, blue: 0/255, alpha: 1)
+            intervalIncrementButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            
+        } else {
+            intervalDecrementIsClicked = true
+            intervalIncrementIsClicked = false
+            intervalDecrementButton.backgroundColor = UIColor.red
+            intervalIncrementButton.backgroundColor = UIColor.gray
+        }
+    }
+    
+    
+    @IBAction func restIncrement(_ sender: UIButton) {
+        
+        if restIncrementIsClicked {
+            restIncrementIsClicked = false
+            restIncrementButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            restDecrementButton.backgroundColor = UIColor(red: 13/255, green: 143/255, blue: 0/255, alpha: 1)
+            
+        } else {
+            restIncrementIsClicked = true
+            restDecrementIsClicked = false
+            restIncrementButton.backgroundColor = UIColor.red
+            restDecrementButton.backgroundColor = UIColor.gray
+        }
+    }
+    
+    
+    @IBAction func restDecrement(_ sender: UIButton) {
+        
+        if restDecrementIsClicked {
+            restDecrementIsClicked = false
+            restDecrementButton.backgroundColor = UIColor(red: 13/255, green: 143/255, blue: 0/255, alpha: 1)
+            restIncrementButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            
+        } else {
+            restDecrementIsClicked = true
+            restIncrementIsClicked = false
+            restDecrementButton.backgroundColor = UIColor.red
+            restIncrementButton.backgroundColor = UIColor.gray
+        }
+    }
+    
+    
+    
     
     
     
@@ -39,21 +113,24 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     var coolDownSeconds = Int()
     var coolDownMinutes = Int()
     var coolDownHours = Int()
+    var numberOfIntervals = Int()
+    var pickUpHours = Int()
+    var pickUpMinutes = Int()
+    var pickUpSeconds = Int()
+    var jogHours = Int()
+    var jogMinutes = Int()
+    var jogSeconds = Int()
     var isJog = Bool()
     
-    var numberOfIntervals = 0
+    var intervalIncrementIsClicked = false
+    var intervalDecrementIsClicked = false
     
-    var onIntervalHours = 0
-    var onIntervalMinutes = 0
-    var onIntervalSeconds = 0
+    var restIncrementIsClicked = false
+    var restDecrementIsClicked = false
     
-    var jogHours = 0
-    var jogMinutes = 0
-    var jogSeconds = 0
-    
-    var toCustomize = false
     
     var intervalPickerData = [String](repeating: "", count: 51)
+    var secondIntervalPickerData = [String](repeating: "", count: 51)
     
     var onIntervalHourPickerData = [String](repeating: "", count: 6)
     var onIntervalMinutePickerData = [String](repeating: "", count: 60)
@@ -68,12 +145,17 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
         NSLog("in class")
         super.viewDidLoad()
         
+        var intervalPickerDataSecond = [String](repeating: "", count: numberOfIntervals)
+        intervalPickerData = intervalPickerDataSecond
+        secondIntervalPickerData = intervalPickerDataSecond
+        
         if (!isJog) {
-            pickUpLabel.text = "Interval\nlength:"
-            restLabel.text = "Rest\nlength:"
+            pickUpLabel.text = "Interval\nlength\nchange:"
+            restLabel.text = "Rest\nlength\nchange:"
         }
         
         self.intervalPicker.delegate = self
+        self.secondIntervalPicker.delegate = self
         
         self.intervalHourPicker.delegate = self
         self.intervalMinutePicker.delegate = self
@@ -85,11 +167,13 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
         
         
         var seconds = 1
-        while seconds < 51 {
+        while seconds < numberOfIntervals + 1 {
             if seconds < 10 {
                 intervalPickerData[seconds-1] = "0" + String(seconds)
+                secondIntervalPickerData[seconds-1] = "0" + String(seconds)
             } else {
                 intervalPickerData[seconds-1] = String(seconds)
+                secondIntervalPickerData[seconds-1] = String(seconds)
             }
             seconds += 1
         }
@@ -121,7 +205,7 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             jogHourPickerData[interSec] = "0" + String(interSec)
             interSec += 1
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -158,8 +242,11 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             
         } else if pickerView == jogSecondPicker {
             return jogSecondPickerData.count
+            
+        } else if pickerView == secondIntervalPicker {
+            return secondIntervalPickerData.count
         }
-
+        
         return 0
     }
     
@@ -185,6 +272,9 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             
         } else if pickerView == jogSecondPicker {
             return jogSecondPickerData[row]
+            
+        } else if pickerView == secondIntervalPicker {
+            return secondIntervalPickerData[row]
         }
         
         return nil
@@ -201,16 +291,16 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             NSLog("Number of intervals: " + String(numberOfIntervals));
             
         } else if pickerView.tag == 2 {
-            onIntervalHours = row
-            NSLog("Pick up hours: " + String(onIntervalHours))
+            pickUpHours = row
+            NSLog("Pick up hours: " + String(pickUpHours))
             
         } else if pickerView.tag == 3 {
-            onIntervalMinutes = row
-            NSLog("Pick up minutes: " + String(onIntervalMinutes))
+            pickUpMinutes = row
+            NSLog("Pick up minutes: " + String(pickUpMinutes))
             
         } else if pickerView.tag == 4 {
-            onIntervalSeconds = row
-            NSLog("Pick up seconds: " + String(onIntervalSeconds))
+            pickUpSeconds = row
+            NSLog("Pick up seconds: " + String(pickUpSeconds))
             
         } else if pickerView.tag == 5 {
             jogHours = row
@@ -224,61 +314,37 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
             jogSeconds = row
             NSLog("Jogging seconds: " + String(jogSeconds))
             
+        } else if pickerView.tag == 8 {
+            upperBoundInterval = row
+            NSLog("Upper Bound Interval: " + String(upperBoundInterval))
+            
         }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if toCustomize {
-            
-            let destination : FourteenthViewController = segue.destination as! FourteenthViewController
-            NSLog("in segue")
-            destination.usersName = String(usersName)
-            destination.warmUpSeconds = warmUpSeconds
-            destination.warmUpMinutes = warmUpMinutes
-            destination.warmUpHours = warmUpHours
-            destination.coolDownSeconds = coolDownSeconds
-            destination.coolDownMinutes = coolDownMinutes
-            destination.coolDownHours = coolDownHours
-            destination.numberOfIntervals = numberOfIntervals
-            destination.pickUpHours = onIntervalHours
-            destination.pickUpMinutes = onIntervalMinutes
-            destination.pickUpSeconds = onIntervalSeconds
-            destination.jogHours = jogHours
-            destination.jogMinutes = jogMinutes
-            destination.jogSeconds = jogSeconds
-            destination.isJog = isJog
-
-        } else {
-            
-            let destination : TwelfthViewController = segue.destination as! TwelfthViewController
-            NSLog("in segue")
-            destination.usersName = String(usersName)
-            destination.warmUpSeconds = warmUpSeconds
-            destination.warmUpMinutes = warmUpMinutes
-            destination.warmUpHours = warmUpHours
-            destination.coolDownSeconds = coolDownSeconds
-            destination.coolDownMinutes = coolDownMinutes
-            destination.coolDownHours = coolDownHours
-            destination.numberOfIntervals = numberOfIntervals
-            destination.pickUpHours = onIntervalHours
-            destination.pickUpMinutes = onIntervalMinutes
-            destination.pickUpSeconds = onIntervalSeconds
-            destination.jogHours = jogHours
-            destination.jogMinutes = jogMinutes
-            destination.jogSeconds = jogSeconds
-            destination.isJog = isJog
-        }
-        
-        
-        
-
+        let destination : TwelfthViewController = segue.destination as! TwelfthViewController
+        NSLog("in segue")
+        destination.usersName = String(usersName)
+        destination.warmUpSeconds = warmUpSeconds
+        destination.warmUpMinutes = warmUpMinutes
+        destination.warmUpHours = warmUpHours
+        destination.coolDownSeconds = coolDownSeconds
+        destination.coolDownMinutes = coolDownMinutes
+        destination.coolDownHours = coolDownHours
+        destination.numberOfIntervals = numberOfIntervals
+        destination.pickUpHours = pickUpHours
+        destination.pickUpMinutes = pickUpMinutes
+        destination.pickUpSeconds = pickUpSeconds
+        destination.jogHours = jogHours
+        destination.jogMinutes = jogMinutes
+        destination.jogSeconds = jogSeconds
+        destination.isJog = isJog
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if ((onIntervalHours == 0) && (onIntervalMinutes == 0) && (onIntervalSeconds == 0)){
+        if ((pickUpHours == 0) && (pickUpMinutes == 0) && (pickUpSeconds == 0)){
             let alertController = UIAlertController(title: "Workout Timer", message:
                 "Please specify pick up length", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
@@ -298,12 +364,6 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
         
         return true
     }
-
+    
 }
-
-
-
-
-
-
 
