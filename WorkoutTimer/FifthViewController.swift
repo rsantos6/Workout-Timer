@@ -123,6 +123,7 @@ class FifthViewController: UIViewController  {
         } else if questionCount == 2{
             let destination : SeventhViewController = segue.destination as! SeventhViewController
             
+            destination.isJog = true
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes
@@ -133,8 +134,9 @@ class FifthViewController: UIViewController  {
             NSLog("Going to SeventhViewController")
             
         } else {
-            let destination : EigthViewController = segue.destination as! EigthViewController
+            let destination : SeventhViewController = segue.destination as! SeventhViewController
             
+            destination.isJog = false
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes
@@ -142,7 +144,7 @@ class FifthViewController: UIViewController  {
             destination.coolDownSeconds = coolDownSeconds
             destination.coolDownMinutes = coolDownMinutes
             destination.coolDownHours = coolDownHours
-            NSLog("Going to EigthViewController")
+            NSLog("Going to SeventhViewController")
         }
     }
 

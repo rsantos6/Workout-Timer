@@ -23,7 +23,8 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var jogMinutePicker: UIPickerView!
     @IBOutlet weak var jogSecondPicker: UIPickerView!
     
- 
+    @IBOutlet weak var pickUpLabel: UILabel!
+    @IBOutlet weak var restLabel: UILabel!
     
     
     
@@ -35,6 +36,7 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     var coolDownSeconds = Int()
     var coolDownMinutes = Int()
     var coolDownHours = Int()
+    var isJog = Bool()
     
     var numberOfIntervals = 0
     
@@ -60,6 +62,11 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     override func viewDidLoad() {
         NSLog("in class")
         super.viewDidLoad()
+        
+        if (!isJog) {
+            pickUpLabel.text = "Interval\nlength:"
+            restLabel.text = "Rest\nlength:"
+        }
         
         self.intervalPicker.delegate = self
         
@@ -233,6 +240,7 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
         destination.jogHours = jogHours
         destination.jogMinutes = jogMinutes
         destination.jogSeconds = jogSeconds
+        destination.isJog = isJog
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

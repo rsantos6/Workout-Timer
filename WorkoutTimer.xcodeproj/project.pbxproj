@@ -27,7 +27,6 @@
 		D5C8E1E71F1927AA00EF17B7 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1E61F1927AA00EF17B7 /* FifthViewController.swift */; };
 		D5C8E1E91F1949D800EF17B7 /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1E81F1949D800EF17B7 /* SixthViewController.swift */; };
 		D5C8E1EB1F1949E800EF17B7 /* SeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1EA1F1949E800EF17B7 /* SeventhViewController.swift */; };
-		D5C8E1ED1F1949F500EF17B7 /* EigthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C8E1EC1F1949F500EF17B7 /* EigthViewController.swift */; };
 		D5D53D061F1F812400BA9D83 /* run-complete.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5D53D051F1F812400BA9D83 /* run-complete.wav */; };
 		D5D53D081F1F8BA900BA9D83 /* cool.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5D53D071F1F8BA900BA9D83 /* cool.wav */; };
 		D5D53D0A1F1FAC2F00BA9D83 /* completed.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5D53D091F1FAC2F00BA9D83 /* completed.wav */; };
@@ -77,7 +76,6 @@
 		D5C8E1E61F1927AA00EF17B7 /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		D5C8E1E81F1949D800EF17B7 /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 		D5C8E1EA1F1949E800EF17B7 /* SeventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeventhViewController.swift; sourceTree = "<group>"; };
-		D5C8E1EC1F1949F500EF17B7 /* EigthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EigthViewController.swift; sourceTree = "<group>"; };
 		D5D53D051F1F812400BA9D83 /* run-complete.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "run-complete.wav"; sourceTree = "<group>"; };
 		D5D53D071F1F8BA900BA9D83 /* cool.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cool.wav; sourceTree = "<group>"; };
 		D5D53D091F1FAC2F00BA9D83 /* completed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = completed.wav; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				D5C8E1E61F1927AA00EF17B7 /* FifthViewController.swift */,
 				D5C8E1E81F1949D800EF17B7 /* SixthViewController.swift */,
 				D5C8E1EA1F1949E800EF17B7 /* SeventhViewController.swift */,
-				D5C8E1EC1F1949F500EF17B7 /* EigthViewController.swift */,
 				D55041F41F1CE14200C72B45 /* NinthViewController.swift */,
 				D55041F61F1D0BBA00C72B45 /* TenthViewController.swift */,
 				D55041F81F1D106A00C72B45 /* EleventhViewController.swift */,
@@ -324,7 +321,6 @@
 				D56330021F1539E80060084F /* SecondViewController.swift in Sources */,
 				D5632FD61F14F0F90060084F /* ViewController.swift in Sources */,
 				D5831B301F166589009F4F5F /* ThirdViewController.swift in Sources */,
-				D5C8E1ED1F1949F500EF17B7 /* EigthViewController.swift in Sources */,
 				D5632FD41F14F0F90060084F /* AppDelegate.swift in Sources */,
 				D55041F51F1CE14200C72B45 /* NinthViewController.swift in Sources */,
 				D5C8E1E31F1917CC00EF17B7 /* FourthViewController.swift in Sources */,

@@ -65,6 +65,7 @@ class TwelfthViewController: UIViewController {
     var jogHours = Int()
     var jogMinutes = Int()
     var jogSeconds = Int()
+    var isJog = Bool()
         
     var beginWorkoutIn = false
     var beginWarmUpIn = false
@@ -699,12 +700,24 @@ class TwelfthViewController: UIViewController {
         resumeButton.setTitle("Resume", for: .normal)
         if goPickUp {
             
-            let utterance = AVSpeechUtterance(string: "Start pick up now!")
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.5
+            if isJog {
+                
+                let utterance = AVSpeechUtterance(string: "Start pick up now!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+                
+            } else {
+                let utterance = AVSpeechUtterance(string: "Start running now!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
             
-            let synthesizer = AVSpeechSynthesizer()
-            synthesizer.speak(utterance)
             
             if (!resuming){
                numberOfIntervals = numberOfIntervals - 1
@@ -717,12 +730,23 @@ class TwelfthViewController: UIViewController {
             
         } else if !goPickUp {
             
-            let utterance = AVSpeechUtterance(string: "Start jogging now!")
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.5
+            if isJog {
+                let utterance = AVSpeechUtterance(string: "Start jogging now!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+                
+            } else {
+                let utterance = AVSpeechUtterance(string: "Start rest now!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
             
-            let synthesizer = AVSpeechSynthesizer()
-            synthesizer.speak(utterance)
             
             //creates the timer object that is connected to the counter function
             jogCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwelfthViewController.joggingCounter), userInfo: nil, repeats: true)
@@ -939,8 +963,16 @@ class TwelfthViewController: UIViewController {
             alternateCountDownTimer()
             
         } else if (pickUpSeconds == 0) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals > 0) {
-            timerText = "Begin Jogging"
-            time.text = "Begin Jogging"
+            
+            if isJog {
+                timerText = "Begin Jogging"
+                time.text = "Begin Jogging"
+                
+            } else {
+                timerText = "Begin Rest"
+                time.text = "Begin Rest"
+            }
+            
             fullCounter.invalidate()
             goPickUp = false
             pickUpHours = tempPickUpHours
@@ -949,12 +981,26 @@ class TwelfthViewController: UIViewController {
             beginWorkout()
             
         } else if (pickUpSeconds == 10) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals > 0) {
-            let utterance = AVSpeechUtterance(string: "Jog in ten seconds!")
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.5
             
-            let synthesizer = AVSpeechSynthesizer()
-            synthesizer.speak(utterance)
+            if isJog {
+                
+                let utterance = AVSpeechUtterance(string: "Jog in ten seconds!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+                
+            } else {
+                
+                let utterance = AVSpeechUtterance(string: "Rest in ten seconds!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
+            
         }
         
         //set label to the String with the hours, minutes, and seconds value displayed
@@ -1037,8 +1083,16 @@ class TwelfthViewController: UIViewController {
         
         //once the time runs out stop
         if (jogSeconds == 0) && (jogMinutes == 0) && (jogHours == 0) {
-            timerText = "Begin Pick Up"
-            time.text = "Begin Pick Up"
+            
+            if isJog {
+                timerText = "Begin Pick Up"
+                time.text = "Begin Pick Up"
+                
+            } else {
+                timerText = "Begin Interval"
+                time.text = "Begin Interval"
+            }
+            
             jogCounter.invalidate()
             goPickUp = true
             jogHours = tempJogHours
@@ -1047,12 +1101,27 @@ class TwelfthViewController: UIViewController {
             beginWorkout()
             
         } else if (jogSeconds == 10) && (jogMinutes == 0) && (jogHours == 0) {
-            let utterance = AVSpeechUtterance(string: "Pick up in ten seconds!")
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.5
             
-            let synthesizer = AVSpeechSynthesizer()
-            synthesizer.speak(utterance)
+            if isJog {
+                
+                let utterance = AVSpeechUtterance(string: "Pick up in ten seconds!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+                
+            } else {
+                
+                let utterance = AVSpeechUtterance(string: "Run in ten seconds!")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = 0.5
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
+            
+            
         }
         
         //set label to the String with the hours, minutes, and seconds value displayed
