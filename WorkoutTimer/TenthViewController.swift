@@ -19,6 +19,12 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBOutlet weak var fromNinth: UIButton!
+    @IBOutlet weak var fromFifteenth: UIButton!
+    
+    @IBOutlet weak var saveFromNinth: UIButton!
+    @IBOutlet weak var saveFromFifteenth: UIButton!
+    
   
     
     var usersName = String()
@@ -60,6 +66,14 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
        override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        if fromFifteen {
+            fromNinth.isHidden = true
+            saveFromNinth.isHidden = true
+        } else {
+            fromFifteenth.isHidden = true
+            saveFromFifteenth.isHidden = true
+        }
         
         headerLabel.text = "Edit the time for the " + whatEdit + " here"
         

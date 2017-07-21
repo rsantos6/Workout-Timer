@@ -611,6 +611,26 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
             destination.coolDownMinutes = coolDownMinutes
             destination.coolDownHours = coolDownHours
             destination.isJog = isJog
+            
+         } else if toRun {
+            let destination : SixteenthViewController = segue.destination as! SixteenthViewController
+            NSLog("in segue")
+            destination.usersName = String(usersName)
+            destination.warmUpSeconds = warmUpSeconds
+            destination.warmUpMinutes = warmUpMinutes
+            destination.warmUpHours = warmUpHours
+            destination.coolDownSeconds = coolDownSeconds
+            destination.coolDownMinutes = coolDownMinutes
+            destination.coolDownHours = coolDownHours
+            destination.numberOfIntervals = numberOfIntervals
+            destination.pickUpHours = pickUpHours
+            destination.pickUpMinutes = pickUpMinutes
+            destination.pickUpSeconds = pickUpSeconds
+            destination.jogHours = jogHours
+            destination.jogMinutes = jogMinutes
+            destination.jogSeconds = jogSeconds
+            destination.isJog = isJog
+
         }
     }
 }
