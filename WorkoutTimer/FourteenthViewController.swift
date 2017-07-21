@@ -36,7 +36,246 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
     @IBOutlet weak var pickUpLabel: UILabel!
     @IBOutlet weak var restLabel: UILabel!
   
-    var upperBoundInterval = 0
+    var toInterval = 1
+    var fromInterval = 1
+    var pickUpChangeHours = 0
+    var pickUpChangeMinutes = 0
+    var pickUpChangeSeconds = 0
+    var restChangeHours = 0
+    var restChangeMinutes = 0
+    var restChangeSeconds = 0
+    var mainArray = [IncrementDecrement]()
+    
+    
+    @IBAction func saveChanges(_ sender: UIButton) {
+        
+        if (toInterval == fromInterval) {
+            
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Intervals cannot be equal", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+
+        } else if (pickUpChangeHours == 0) && (pickUpChangeMinutes == 0) && (pickUpChangeSeconds == 0) && (restChangeHours == 0) && (restChangeMinutes == 0) && (restChangeSeconds == 0) {
+            
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Please make a change", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else if (toInterval < fromInterval) {
+            
+            let alertController = UIAlertController(title: "Workout Timer", message:
+                "Can't go back in the past! Change the interval counters", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        
+            
+            /*****************************************************************
+             * Will eventually change this part to not be so verbosed and get
+             * the new IncrementDecrement object to be passed into a function
+             * that checks if there are duplicates or bad intervals, but for
+             * now I just want to see if it works and Swift pass by reference
+             * is different than what I'm accustom to
+             *****************************************************************/
+            
+            
+        } else if intervalIncrementIsClicked && restIncrementIsClicked {
+            
+            var temp = IncrementDecrement(startInterval: fromInterval, endInterval: toInterval, intervalChangeHours: pickUpChangeHours, intervalChangeMinutes: pickUpChangeMinutes, intervalChangeSeconds: pickUpChangeSeconds, restChangeHours: restChangeHours, restChangeMinutes: restChangeMinutes, restChangeSeconds: restChangeSeconds, incrementPickUp: true, decrementPickUp: false, incrementRest: true, decrementRest: false)
+            
+            var i = 0
+            var duplicate = false
+            var badIntervals = false
+            while i < mainArray.count {
+                if mainArray[i].isEqual(temp: temp) {
+                    duplicate = true
+                }
+                
+                if temp.intersectingIntervals(temp: mainArray[i]){
+                    badIntervals = true
+                }
+                i = i + 1
+            }
+            
+            NSLog("badIntervals: " + String(badIntervals))
+            
+            if duplicate {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "You've already saved these changes", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if badIntervals {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Intervals intersect", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if (!duplicate) && (!badIntervals) {
+                
+                mainArray.append(temp)
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Changes saved! You may make another one", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+
+            
+        } else if intervalIncrementIsClicked && restDecrementIsClicked {
+            
+            var temp = IncrementDecrement(startInterval: fromInterval, endInterval: toInterval, intervalChangeHours: pickUpChangeHours, intervalChangeMinutes: pickUpChangeMinutes, intervalChangeSeconds: pickUpChangeSeconds, restChangeHours: restChangeHours, restChangeMinutes: restChangeMinutes, restChangeSeconds: restChangeSeconds, incrementPickUp: true, decrementPickUp: false, incrementRest: false, decrementRest: true)
+            
+            var i = 0
+            var duplicate = false
+            var badIntervals = false
+            while i < mainArray.count {
+                if mainArray[i].isEqual(temp: temp) {
+                    duplicate = true
+                }
+                
+                if temp.intersectingIntervals(temp: mainArray[i]){
+                    badIntervals = true
+                }
+                i = i + 1
+            }
+            
+            if duplicate {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "You've already saved these changes", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if badIntervals {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Intervals intersect", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if (!duplicate) && (!badIntervals) {
+                
+                mainArray.append(temp)
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Changes saved! You may make another one", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+
+            
+        } else if intervalDecrementIsClicked && restDecrementIsClicked {
+            
+            var temp = IncrementDecrement(startInterval: fromInterval, endInterval: toInterval, intervalChangeHours: pickUpChangeHours, intervalChangeMinutes: pickUpChangeMinutes, intervalChangeSeconds: pickUpChangeSeconds, restChangeHours: restChangeHours, restChangeMinutes: restChangeMinutes, restChangeSeconds: restChangeSeconds, incrementPickUp: false, decrementPickUp: true, incrementRest: false, decrementRest: true)
+            
+            var i = 0
+            var duplicate = false
+            var badIntervals = false
+            while i < mainArray.count {
+                if mainArray[i].isEqual(temp: temp) {
+                    duplicate = true
+                }
+                
+                if temp.intersectingIntervals(temp: mainArray[i]){
+                    badIntervals = true
+                }
+                i = i + 1
+            }
+            
+            if duplicate {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "You've already saved these changes", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if badIntervals {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Intervals intersect", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if (!duplicate) && (!badIntervals) {
+                
+                mainArray.append(temp)
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Changes saved! You may make another one", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+
+            
+        } else if intervalDecrementIsClicked && restIncrementIsClicked {
+            
+            var temp = IncrementDecrement(startInterval: fromInterval, endInterval: toInterval, intervalChangeHours: pickUpChangeHours, intervalChangeMinutes: pickUpChangeMinutes, intervalChangeSeconds: pickUpChangeSeconds, restChangeHours: restChangeHours, restChangeMinutes: restChangeMinutes, restChangeSeconds: restChangeSeconds, incrementPickUp: false, decrementPickUp: true, incrementRest: true, decrementRest: false)
+            
+            var i = 0
+            var duplicate = false
+            var badIntervals = false
+            while i < mainArray.count {
+                if mainArray[i].isEqual(temp: temp) {
+                    duplicate = true
+                }
+                
+                if temp.intersectingIntervals(temp: mainArray[i]){
+                    badIntervals = true
+                }
+                i = i + 1
+            }
+            
+            if duplicate {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "You've already saved these changes", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if badIntervals {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Intervals intersect", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if (!duplicate) && (!badIntervals) {
+                
+                mainArray.append(temp)
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Changes saved! You may make another one", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        var j = 0
+        while j < mainArray.count {
+            mainArray[j].toString()
+            j = j + 1
+        }
+    }
+    
     
     @IBAction func intervalIncrement(_ sender: UIButton) {
         
@@ -121,6 +360,8 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
     var jogMinutes = Int()
     var jogSeconds = Int()
     var isJog = Bool()
+    
+    
     
     var intervalIncrementIsClicked = false
     var intervalDecrementIsClicked = false
@@ -250,6 +491,7 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
         return 0
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView == intervalPicker {
@@ -287,43 +529,43 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
         if pickerView.tag == 1 {
-            numberOfIntervals = row+1;
-            NSLog("Number of intervals: " + String(numberOfIntervals));
+            fromInterval = row+1;
+            NSLog("Lower Bound Interval: " + String(fromInterval));
             
         } else if pickerView.tag == 2 {
-            pickUpHours = row
-            NSLog("Pick up hours: " + String(pickUpHours))
+            pickUpChangeHours = row
+            NSLog("Pick up hours: " + String(pickUpChangeHours))
             
         } else if pickerView.tag == 3 {
-            pickUpMinutes = row
-            NSLog("Pick up minutes: " + String(pickUpMinutes))
+            pickUpChangeMinutes = row
+            NSLog("Pick up minutes: " + String(pickUpChangeMinutes))
             
         } else if pickerView.tag == 4 {
-            pickUpSeconds = row
-            NSLog("Pick up seconds: " + String(pickUpSeconds))
+            pickUpChangeSeconds = row
+            NSLog("Pick up seconds: " + String(pickUpChangeSeconds))
             
         } else if pickerView.tag == 5 {
-            jogHours = row
-            NSLog("Jogging hours: " + String(jogHours))
+            restChangeHours = row
+            NSLog("Jogging hours: " + String(restChangeHours))
             
         } else if pickerView.tag == 6 {
-            jogMinutes = row
-            NSLog("Jogging minutes: " + String(jogMinutes))
+            restChangeMinutes = row
+            NSLog("Jogging minutes: " + String(restChangeMinutes))
             
         } else if pickerView.tag == 7 {
-            jogSeconds = row
-            NSLog("Jogging seconds: " + String(jogSeconds))
+            restChangeSeconds = row
+            NSLog("Jogging seconds: " + String(restChangeSeconds))
             
         } else if pickerView.tag == 8 {
-            upperBoundInterval = row
-            NSLog("Upper Bound Interval: " + String(upperBoundInterval))
+            toInterval = row+1
+            NSLog("Upper Bound Interval: " + String(toInterval))
             
         }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination : TwelfthViewController = segue.destination as! TwelfthViewController
+        let destination : FifteenthViewController = segue.destination as! FifteenthViewController
         NSLog("in segue")
         destination.usersName = String(usersName)
         destination.warmUpSeconds = warmUpSeconds
@@ -340,21 +582,14 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
         destination.jogMinutes = jogMinutes
         destination.jogSeconds = jogSeconds
         destination.isJog = isJog
+        destination.mainArray = mainArray
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if ((pickUpHours == 0) && (pickUpMinutes == 0) && (pickUpSeconds == 0)){
+        if (mainArray.count == 0){
             let alertController = UIAlertController(title: "Workout Timer", message:
-                "Please specify pick up length", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
-            return false
-            
-        } else if ((jogHours == 0) && (jogMinutes == 0) && (jogSeconds == 0)){
-            let alertController = UIAlertController(title: "Workout Timer", message:
-                "Please specify jogging length", preferredStyle: UIAlertControllerStyle.alert)
+                "Please select an option", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)

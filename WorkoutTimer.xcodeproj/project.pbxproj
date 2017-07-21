@@ -13,6 +13,8 @@
 		D55041F91F1D106A00C72B45 /* EleventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55041F81F1D106A00C72B45 /* EleventhViewController.swift */; };
 		D55041FB1F1D361B00C72B45 /* bugle.wav in Resources */ = {isa = PBXBuildFile; fileRef = D55041FA1F1D361B00C72B45 /* bugle.wav */; };
 		D55041FD1F1D3B6200C72B45 /* change-pace.wav in Resources */ = {isa = PBXBuildFile; fileRef = D55041FC1F1D3B6200C72B45 /* change-pace.wav */; };
+		D55C27CC1F221BE40043F7A3 /* IncrementDecrement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C27CB1F221BE40043F7A3 /* IncrementDecrement.swift */; };
+		D55C27CE1F2247610043F7A3 /* FifteenthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C27CD1F2247610043F7A3 /* FifteenthViewController.swift */; };
 		D5632FD41F14F0F90060084F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5632FD31F14F0F90060084F /* AppDelegate.swift */; };
 		D5632FD61F14F0F90060084F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5632FD51F14F0F90060084F /* ViewController.swift */; };
 		D5632FD91F14F0F90060084F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5632FD71F14F0F90060084F /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		D55041F81F1D106A00C72B45 /* EleventhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EleventhViewController.swift; sourceTree = "<group>"; };
 		D55041FA1F1D361B00C72B45 /* bugle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bugle.wav; sourceTree = "<group>"; };
 		D55041FC1F1D3B6200C72B45 /* change-pace.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "change-pace.wav"; sourceTree = "<group>"; };
+		D55C27CB1F221BE40043F7A3 /* IncrementDecrement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementDecrement.swift; sourceTree = "<group>"; };
+		D55C27CD1F2247610043F7A3 /* FifteenthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifteenthViewController.swift; sourceTree = "<group>"; };
 		D5632FD01F14F0F90060084F /* WorkoutTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5632FD31F14F0F90060084F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5632FD51F14F0F90060084F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				D55041F81F1D106A00C72B45 /* EleventhViewController.swift */,
 				D56D25481F20CF07001BAB30 /* TwelfthViewController.swift */,
 				D56D254A1F2116EA001BAB30 /* FourteenthViewController.swift */,
+				D55C27CB1F221BE40043F7A3 /* IncrementDecrement.swift */,
+				D55C27CD1F2247610043F7A3 /* FifteenthViewController.swift */,
 			);
 			path = WorkoutTimer;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				D5C8E1E91F1949D800EF17B7 /* SixthViewController.swift in Sources */,
 				D56D25491F20CF07001BAB30 /* TwelfthViewController.swift in Sources */,
 				D5C8E1EB1F1949E800EF17B7 /* SeventhViewController.swift in Sources */,
+				D55C27CE1F2247610043F7A3 /* FifteenthViewController.swift in Sources */,
 				D56330021F1539E80060084F /* SecondViewController.swift in Sources */,
 				D5632FD61F14F0F90060084F /* ViewController.swift in Sources */,
 				D56D254B1F2116EA001BAB30 /* FourteenthViewController.swift in Sources */,
@@ -329,6 +336,7 @@
 				D55041F51F1CE14200C72B45 /* NinthViewController.swift in Sources */,
 				D5C8E1E31F1917CC00EF17B7 /* FourthViewController.swift in Sources */,
 				D55041F71F1D0BBA00C72B45 /* TenthViewController.swift in Sources */,
+				D55C27CC1F221BE40043F7A3 /* IncrementDecrement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

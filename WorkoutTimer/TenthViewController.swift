@@ -33,6 +33,18 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var fullRunHours = Int()
     var whatEdit = String()
     
+    var numberOfIntervals = Int()
+    var pickUpHours = Int()
+    var pickUpMinutes = Int()
+    var pickUpSeconds = Int()
+    var jogHours = Int()
+    var jogMinutes = Int()
+    var jogSeconds = Int()
+    var isJog = Bool()
+    var mainArray = [IncrementDecrement]()
+    
+    var fromFifteen = Bool()
+    
     var secondPickerData = [String](repeating: "", count: 60)
     var minutePickerData = [String](repeating: "", count: 60)
     var hourPickerData = [String](repeating: "", count: 6)
@@ -129,12 +141,99 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveChanges" {
-            if whatEdit == "run" {
-                let destination : NinthViewController = segue.destination as! NinthViewController
-                NSLog("Save Chages for Run")
+            if fromFifteen {
+                if whatEdit == "warmup" {
+                    let destination : FifteenthViewController = segue.destination as! FifteenthViewController
+                    NSLog("Save Changes for Warmup")
+                    destination.usersName = String(usersName)
+                    destination.warmUpSeconds = editedSeconds
+                    destination.warmUpMinutes = editedMinutes
+                    destination.warmUpHours = editedHours
+                    destination.coolDownSeconds = coolDownSeconds
+                    destination.coolDownMinutes = coolDownMinutes
+                    destination.coolDownHours = coolDownHours
+                    destination.numberOfIntervals = numberOfIntervals
+                    destination.pickUpHours = pickUpHours
+                    destination.pickUpMinutes = pickUpMinutes
+                    destination.pickUpSeconds = pickUpSeconds
+                    destination.jogHours = jogHours
+                    destination.jogMinutes = jogMinutes
+                    destination.jogSeconds = jogSeconds
+                    destination.isJog = isJog
+                    destination.mainArray = mainArray
+                    
+                } else {
+                    
+                    let destination : FifteenthViewController = segue.destination as! FifteenthViewController
+                    NSLog("Save Changes for Warmup")
+                    destination.usersName = String(usersName)
+                    destination.warmUpSeconds = warmUpSeconds
+                    destination.warmUpMinutes = warmUpMinutes
+                    destination.warmUpHours = warmUpHours
+                    destination.coolDownSeconds = editedSeconds
+                    destination.coolDownMinutes = editedMinutes
+                    destination.coolDownHours = editedHours
+                    destination.numberOfIntervals = numberOfIntervals
+                    destination.pickUpHours = pickUpHours
+                    destination.pickUpMinutes = pickUpMinutes
+                    destination.pickUpSeconds = pickUpSeconds
+                    destination.jogHours = jogHours
+                    destination.jogMinutes = jogMinutes
+                    destination.jogSeconds = jogSeconds
+                    destination.isJog = isJog
+                    destination.mainArray = mainArray
+
+                }
+            } else {
+            
+            
+                if whatEdit == "run" {
+                    let destination : NinthViewController = segue.destination as! NinthViewController
+                    NSLog("Save Chages for Run")
+                    destination.usersName = String(usersName)
+                    destination.warmUpSeconds = warmUpSeconds
+                    destination.warmUpMinutes = warmUpMinutes
+                    destination.warmUpHours = warmUpHours
+                    destination.coolDownSeconds = coolDownSeconds
+                    destination.coolDownMinutes = coolDownMinutes
+                    destination.coolDownHours = coolDownHours
+                    destination.fullRunSeconds = editedSeconds
+                    destination.fullRunMinutes = editedMinutes
+                    destination.fullRunHours = editedHours
+                } else if whatEdit == "warmup" {
+                    let destination : NinthViewController = segue.destination as! NinthViewController
+                    NSLog("Save Changes for Warmup")
+                    destination.usersName = String(usersName)
+                    destination.warmUpSeconds = editedSeconds
+                    destination.warmUpMinutes = editedMinutes
+                    destination.warmUpHours = editedHours
+                    destination.coolDownSeconds = coolDownSeconds
+                    destination.coolDownMinutes = coolDownMinutes
+                    destination.coolDownHours = coolDownHours
+                    destination.fullRunSeconds = fullRunSeconds
+                    destination.fullRunMinutes = fullRunMinutes
+                    destination.fullRunHours = fullRunHours
+                } else {
+                    let destination : NinthViewController = segue.destination as! NinthViewController
+                    NSLog("Save Changes for Cooldown")
+                    destination.usersName = String(usersName)
+                    destination.warmUpSeconds = warmUpSeconds
+                    destination.warmUpMinutes = warmUpMinutes
+                    destination.warmUpHours = warmUpHours
+                    destination.coolDownSeconds = editedSeconds
+                    destination.coolDownMinutes = editedMinutes
+                    destination.coolDownHours = editedHours
+                    destination.fullRunSeconds = fullRunSeconds
+                    destination.fullRunMinutes = fullRunMinutes
+                    destination.fullRunHours = fullRunHours
+                }
+            }
+        } else if segue.identifier == "noChanges" {
+            if fromFifteen {
+                let destination : FifteenthViewController = segue.destination as! FifteenthViewController
+                NSLog("Go Back With No Changes")
                 destination.usersName = String(usersName)
                 destination.warmUpSeconds = warmUpSeconds
                 destination.warmUpMinutes = warmUpMinutes
@@ -142,49 +241,31 @@ class TenthViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 destination.coolDownSeconds = coolDownSeconds
                 destination.coolDownMinutes = coolDownMinutes
                 destination.coolDownHours = coolDownHours
-                destination.fullRunSeconds = editedSeconds
-                destination.fullRunMinutes = editedMinutes
-                destination.fullRunHours = editedHours
-            } else if whatEdit == "warmup" {
-                let destination : NinthViewController = segue.destination as! NinthViewController
-                NSLog("Save Changes for Warmup")
-                destination.usersName = String(usersName)
-                destination.warmUpSeconds = editedSeconds
-                destination.warmUpMinutes = editedMinutes
-                destination.warmUpHours = editedHours
-                destination.coolDownSeconds = coolDownSeconds
-                destination.coolDownMinutes = coolDownMinutes
-                destination.coolDownHours = coolDownHours
-                destination.fullRunSeconds = fullRunSeconds
-                destination.fullRunMinutes = fullRunMinutes
-                destination.fullRunHours = fullRunHours
+                destination.numberOfIntervals = numberOfIntervals
+                destination.pickUpHours = pickUpHours
+                destination.pickUpMinutes = pickUpMinutes
+                destination.pickUpSeconds = pickUpSeconds
+                destination.jogHours = jogHours
+                destination.jogMinutes = jogMinutes
+                destination.jogSeconds = jogSeconds
+                destination.isJog = isJog
+                destination.mainArray = mainArray
+                
             } else {
                 let destination : NinthViewController = segue.destination as! NinthViewController
-                NSLog("Save Changes for Cooldown")
+                NSLog("Go Back With No Changes")
                 destination.usersName = String(usersName)
                 destination.warmUpSeconds = warmUpSeconds
                 destination.warmUpMinutes = warmUpMinutes
                 destination.warmUpHours = warmUpHours
-                destination.coolDownSeconds = editedSeconds
-                destination.coolDownMinutes = editedMinutes
-                destination.coolDownHours = editedHours
+                destination.coolDownSeconds = coolDownSeconds
+                destination.coolDownMinutes = coolDownMinutes
+                destination.coolDownHours = coolDownHours
                 destination.fullRunSeconds = fullRunSeconds
                 destination.fullRunMinutes = fullRunMinutes
                 destination.fullRunHours = fullRunHours
             }
-        } else if segue.identifier == "noChanges" {
-            let destination : NinthViewController = segue.destination as! NinthViewController
-            NSLog("Go Back With No Changes")
-            destination.usersName = String(usersName)
-            destination.warmUpSeconds = warmUpSeconds
-            destination.warmUpMinutes = warmUpMinutes
-            destination.warmUpHours = warmUpHours
-            destination.coolDownSeconds = coolDownSeconds
-            destination.coolDownMinutes = coolDownMinutes
-            destination.coolDownHours = coolDownHours
-            destination.fullRunSeconds = fullRunSeconds
-            destination.fullRunMinutes = fullRunMinutes
-            destination.fullRunHours = fullRunHours
+            
         }
     }
     

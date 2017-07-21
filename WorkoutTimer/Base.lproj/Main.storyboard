@@ -345,7 +345,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Adv-OW-vaM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QmB-BJ-S8v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-my-VGa">
@@ -711,7 +711,7 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ul0-28-xG6" kind="show" identifier="noChanges" id="KNO-fU-HUc"/>
+                                    <segue destination="Bo7-YQ-NKc" kind="show" identifier="noChanges" id="3Ow-xp-kK3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="saveChanges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-z3-Lf9">
@@ -724,7 +724,7 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ul0-28-xG6" kind="show" identifier="saveChanges" id="6gw-CQ-wrZ"/>
+                                    <segue destination="Bo7-YQ-NKc" kind="show" identifier="saveChanges" id="fTI-U9-nTC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1080,7 +1080,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgM-bk-IpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6120" y="562"/>
+            <point key="canvasLocation" x="5644" y="638"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="L9J-kj-eRp">
@@ -1169,10 +1169,88 @@
             </objects>
             <point key="canvasLocation" x="53" y="-287"/>
         </scene>
-        <!--SeventhViewController-->
+        <!--Fifteenth View Controller-->
+        <scene sceneID="cVJ-YL-YjK">
+            <objects>
+                <viewController storyboardIdentifier="FifteenthViewController" modalTransitionStyle="flipHorizontal" id="Bo7-YQ-NKc" customClass="FifteenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BRR-HH-1VG"/>
+                        <viewControllerLayoutGuide type="bottom" id="xD3-xn-Itc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IlW-0N-s4w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="6" translatesAutoresizingMaskIntoConstraints="NO" id="N8j-Mf-TUg">
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.021696891190000001" green="0.021696891190000001" blue="0.021696891190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUB-26-n4m">
+                                <rect key="frame" x="16" y="69" width="288" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fW-TU-cyK">
+                                <rect key="frame" x="16" y="128" width="288" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editWarmUpButton:" destination="Bo7-YQ-NKc" eventType="touchUpInside" id="bQ3-tL-o01"/>
+                                    <action selector="editWarmUpButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="q5W-2u-XrQ"/>
+                                    <segue destination="gEH-TK-srr" kind="show" id="SAw-gc-Zcs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5U-dv-IJT">
+                                <rect key="frame" x="16" y="174" width="288" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKQ-pG-sjG">
+                                <rect key="frame" x="16" y="233" width="288" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editCoolDownButton:" destination="Bo7-YQ-NKc" eventType="touchUpInside" id="GN8-MU-ppz"/>
+                                    <action selector="editCoolDownButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="y3R-PN-L8U"/>
+                                    <segue destination="gEH-TK-srr" kind="show" id="4K0-Z2-YsG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review the following information:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AX-Xk-d5i">
+                                <rect key="frame" x="16" y="20" width="288" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="coolDownInfo" destination="p5U-dv-IJT" id="QIv-Th-pYX"/>
+                        <outlet property="warmUpInfo" destination="PUB-26-n4m" id="N8r-Ij-lRl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STh-kB-2WD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1875" y="994.0140845070423"/>
+        </scene>
+        <!--FourteenthViewController-->
         <scene sceneID="JhJ-Qb-oKk">
             <objects>
-                <viewController storyboardIdentifier="FourteenthViewController" title="SeventhViewController" id="YgF-R5-4Tq" customClass="FourteenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FourteenthViewController" title="FourteenthViewController" id="YgF-R5-4Tq" customClass="FourteenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ubo-gs-QMs"/>
                         <viewControllerLayoutGuide type="bottom" id="G4P-gN-hBQ"/>
@@ -1249,7 +1327,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Increment and decrement your intervals here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUE-IA-iIr">
                                                 <rect key="frame" x="16" y="-16" width="296" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1258,9 +1336,12 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <state key="normal" title="Save Changes">
+                                                <state key="normal" title="Review Information">
                                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Bo7-YQ-NKc" kind="show" id="kZC-I6-xYU"/>
+                                                </connections>
                                             </button>
                                             <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-dz-sbD">
                                                 <rect key="frame" x="94" y="-24" width="100" height="248"/>
@@ -1317,9 +1398,12 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <state key="normal" title="Let's Get Running!">
+                                                <state key="normal" title="Save Changes">
                                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveChanges:" destination="YgF-R5-4Tq" eventType="touchUpInside" id="jqx-dB-aWD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMS-UU-Os9">
                                                 <rect key="frame" x="191" y="720" width="85" height="30"/>
@@ -1415,11 +1499,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hOn-ob-sZE"/>
+        <segue reference="DVk-5V-0WD"/>
         <segue reference="NMt-q4-sVY"/>
         <segue reference="3Hb-55-9xv"/>
-        <segue reference="tqn-eX-oOH"/>
-        <segue reference="DVk-5V-0WD"/>
-        <segue reference="hOn-ob-sZE"/>
-        <segue reference="0iY-Aw-2wS"/>
+        <segue reference="3Ow-xp-kK3"/>
+        <segue reference="SAw-gc-Zcs"/>
     </inferredMetricsTieBreakers>
 </document>

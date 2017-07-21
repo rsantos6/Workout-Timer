@@ -41,7 +41,7 @@ class SeventhViewController: UIViewController,UITextFieldDelegate, UIPickerViewD
     var coolDownHours = Int()
     var isJog = Bool()
     
-    var numberOfIntervals = 0
+    var numberOfIntervals = 1
     
     var onIntervalHours = 0
     var onIntervalMinutes = 0

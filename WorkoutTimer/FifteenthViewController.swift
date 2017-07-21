@@ -1,19 +1,19 @@
 //
-//  NinthViewController.swift
+//  FifteenthViewController.swift
 //  WorkoutTimer
 //
-//  Created by Santos, Russell on 7/17/17.
+//  Created by Santos, Russell on 7/21/17.
 //  Copyright © 2017 theswiftproject. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class NinthViewController: UIViewController,UITextFieldDelegate{
-    @IBOutlet weak var warmUpInfo: UILabel!
-    @IBOutlet weak var coolDownInfo: UILabel!
-    @IBOutlet weak var runInfo: UILabel!
+class FifteenthViewController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet weak var warmUpInfo: UILabel!
+   
+    @IBOutlet weak var coolDownInfo: UILabel!
     
     @IBAction func editWarmUpButton(_ sender: UIButton) {
         editWarmUp = true
@@ -23,18 +23,8 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
         editCoolDown = true
     }
     
-    @IBAction func editRun(_ sender: UIButton) {
-        editRun = true
-    }
     
-    @IBAction func startRunButton(_ sender: UIButton) {
-        startRun = true
-    }
-    
-   /* @IBAction func unwindToNinthViewController(segue: UIStoryboardSegue){
-        
-    }*/
-    
+
     
     var usersName = String()
     var warmUpSeconds = Int()
@@ -43,11 +33,15 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
     var coolDownSeconds = Int()
     var coolDownMinutes = Int()
     var coolDownHours = Int()
-    var fullRunSeconds = Int()
-    var fullRunMinutes = Int()
-    var fullRunHours = Int()
-    
-
+    var numberOfIntervals = Int()
+    var pickUpHours = Int()
+    var pickUpMinutes = Int()
+    var pickUpSeconds = Int()
+    var jogHours = Int()
+    var jogMinutes = Int()
+    var jogSeconds = Int()
+    var isJog = Bool()
+    var mainArray = [IncrementDecrement]()
     
     var stringWarmUpHours = ""
     var stringWarmUpMinutes = ""
@@ -55,18 +49,21 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
     var stringCoolDownHours = ""
     var stringCoolDownMinutes = ""
     var stringCoolDownSeconds = ""
-    var stringRunHours = ""
-    var stringRunMinutes = ""
-    var stringRunSeconds = ""
-    
+
     var editWarmUp = false
     var editCoolDown = false
-    var editRun = false
-    var startRun = false
+
     
     override func viewDidLoad() {
-        NSLog("in class")
+ 
         super.viewDidLoad()
+        
+        var j = 0
+        while j < mainArray.count {
+            mainArray[j].toString()
+            j = j + 1
+        }
+        
         if warmUpHours > 0 {
             if warmUpHours == 1 {
                 stringWarmUpHours = String(warmUpHours) + " hour"
@@ -89,7 +86,7 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             } else {
                 stringWarmUpSeconds = String(warmUpSeconds) + " seconds"
             }
-           
+            
         }
         
         var boldText = "Warmup Time: \n"
@@ -99,7 +96,7 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
         NSLog("Warmup Hours: " + stringWarmUpHours);
         NSLog("Warmup Minutes: " + stringWarmUpMinutes);
         NSLog("Warmup Seconds: " + stringWarmUpSeconds);
-
+        
         
         /*if the user is doing a warmup that involves hours, minutes and seconds*/
         if (stringWarmUpHours != "") && (stringWarmUpMinutes != "") && (stringWarmUpSeconds != "") {
@@ -110,8 +107,8 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             warmUpInfo.attributedText = attributedString
             
         }
-        
-        /* these are the conditions if one of the hours, minutes,
+            
+            /* these are the conditions if one of the hours, minutes,
              or seconds are empty*/
         else if (stringWarmUpHours == "") && (stringWarmUpMinutes != "") && (stringWarmUpSeconds != ""){
             
@@ -135,9 +132,9 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             attributedString.append(normalText)
             warmUpInfo.attributedText = attributedString
         }
-        
             
-        /*these are the conditions if two of the conditions, hours, minutes,
+            
+            /*these are the conditions if two of the conditions, hours, minutes,
              or seconds are empty */
         else if (stringWarmUpHours == "") && (stringWarmUpMinutes == "") && (stringWarmUpSeconds != ""){
             
@@ -147,11 +144,11 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             warmUpInfo.attributedText = attributedString
             
         } else if (stringWarmUpHours != "") && (stringWarmUpMinutes == "") && (stringWarmUpSeconds == ""){
-
+            
             var warmUpText = stringWarmUpHours
             var normalText = NSMutableAttributedString(string:warmUpText)
             attributedString.append(normalText)
-             warmUpInfo.attributedText = attributedString
+            warmUpInfo.attributedText = attributedString
             
         } else if (stringWarmUpHours == "") && (stringWarmUpMinutes != "") && (stringWarmUpSeconds == ""){
             
@@ -161,10 +158,10 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             warmUpInfo.attributedText = attributedString
             
         }
-        
+            
             /*if the user is not doingn a warmup */
         else {
-        
+            
             var warmUpText = "None"
             var normalText = NSMutableAttributedString(string:warmUpText)
             attributedString.append(normalText)
@@ -276,129 +273,22 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             attributedString.append(normalText)
             coolDownInfo.attributedText = attributedString
         }
-        
-        
-        
-        
-        
-        
-        
-        if fullRunHours > 0 {
-            if fullRunHours == 1 {
-                stringRunHours = String(fullRunHours) + " hour"
-            } else {
-                stringRunHours = String(fullRunHours) + " hours"
-            }
-            
-        }
-        if fullRunMinutes > 0 {
-            if fullRunMinutes == 1 {
-                stringRunMinutes = String(fullRunMinutes) + " minute"
-            } else {
-                stringRunMinutes = String(fullRunMinutes) + " minutes"
-            }
-            
-        }
-        if fullRunSeconds > 0 {
-            if fullRunSeconds == 1 {
-                stringRunSeconds = String(fullRunSeconds) + " second"
-            } else {
-                stringRunSeconds = String(fullRunSeconds) + " seconds"
-            }
-            
-        }
-        
-        boldText = "Run Time: \n"
-        attrs = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17)]
-        attributedString = NSMutableAttributedString(string:boldText, attributes: attrs)
-        
-        NSLog("Run Hours: " + stringRunHours);
-        NSLog("Run Minutes: " + stringRunMinutes);
-        NSLog("Run Seconds: " + stringRunSeconds);
-        
-        /*if the user is doing a warmup that involves hours, minutes and seconds*/
-        if (stringRunHours != "") && (stringRunMinutes != "") && (stringRunSeconds != "") {
-            
-            var coolDownText = stringRunHours + ", " + stringRunMinutes + ", and " + stringRunSeconds
-            var normalText = NSMutableAttributedString(string:coolDownText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-        }
-            
-            /* these are the conditions if one of the hours, minutes,
-             or seconds are empty*/
-        else if (stringRunHours == "") && (stringRunMinutes != "") && (stringRunSeconds != ""){
-            
-            var fullRunText = stringRunMinutes + ", and " + stringRunSeconds
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-            
-        } else if (stringRunHours != "") && (stringRunMinutes == "") && (stringRunSeconds != ""){
-            
-            var fullRunText = stringRunHours + ", and " + stringRunSeconds
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-        } else if (stringRunHours != "") && (stringRunMinutes != "") && (stringRunSeconds == ""){
-            
-            var fullRunText = stringRunHours + ", and " + stringRunMinutes
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-        }
-            
-            
-            /*these are the conditions if two of the conditions, hours, minutes,
-             or seconds are empty */
-        else if (stringRunHours == "") && (stringRunMinutes == "") && (stringRunSeconds != ""){
-            
-            var fullRunText = stringRunSeconds
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-        } else if (stringRunHours != "") && (stringRunMinutes == "") && (stringRunSeconds == ""){
-            
-            var fullRunText = stringRunHours
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-        } else if (stringRunHours == "") && (stringRunMinutes != "") && (stringRunSeconds == ""){
-            
-            var fullRunText = stringRunMinutes
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-            
-        }
-            
-            /*if the user is not doingn a warmup */
-        else {
-            
-            var fullRunText = "None"
-            var normalText = NSMutableAttributedString(string:fullRunText)
-            attributedString.append(normalText)
-            runInfo.attributedText = attributedString
-        }
 
 
-       
+        
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if editRun {
+         if editCoolDown {
             let destination : TenthViewController = segue.destination as! TenthViewController
             NSLog("in segue")
             destination.usersName = String(usersName)
@@ -408,24 +298,18 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             destination.coolDownSeconds = coolDownSeconds
             destination.coolDownMinutes = coolDownMinutes
             destination.coolDownHours = coolDownHours
-            destination.fullRunSeconds = fullRunSeconds
-            destination.fullRunMinutes = fullRunMinutes
-            destination.fullRunHours = fullRunHours
-            destination.whatEdit = "run"
-        } else if editCoolDown {
-            let destination : TenthViewController = segue.destination as! TenthViewController
-            NSLog("in segue")
-            destination.usersName = String(usersName)
-            destination.warmUpSeconds = warmUpSeconds
-            destination.warmUpMinutes = warmUpMinutes
-            destination.warmUpHours = warmUpHours
-            destination.coolDownSeconds = coolDownSeconds
-            destination.coolDownMinutes = coolDownMinutes
-            destination.coolDownHours = coolDownHours
-            destination.fullRunSeconds = fullRunSeconds
-            destination.fullRunMinutes = fullRunMinutes
-            destination.fullRunHours = fullRunHours
+            destination.numberOfIntervals = numberOfIntervals
+            destination.pickUpHours = pickUpHours
+            destination.pickUpMinutes = pickUpMinutes
+            destination.pickUpSeconds = pickUpSeconds
+            destination.jogHours = jogHours
+            destination.jogMinutes = jogMinutes
+            destination.jogSeconds = jogSeconds
+            destination.isJog = isJog
+            destination.mainArray = mainArray
             destination.whatEdit = "cooldown"
+            destination.fromFifteen = true
+            
         } else if editWarmUp {
             let destination : TenthViewController = segue.destination as! TenthViewController
             NSLog("in segue")
@@ -436,10 +320,19 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             destination.coolDownSeconds = coolDownSeconds
             destination.coolDownMinutes = coolDownMinutes
             destination.coolDownHours = coolDownHours
-            destination.fullRunSeconds = fullRunSeconds
-            destination.fullRunMinutes = fullRunMinutes
-            destination.fullRunHours = fullRunHours
+            destination.numberOfIntervals = numberOfIntervals
+            destination.pickUpHours = pickUpHours
+            destination.pickUpMinutes = pickUpMinutes
+            destination.pickUpSeconds = pickUpSeconds
+            destination.jogHours = jogHours
+            destination.jogMinutes = jogMinutes
+            destination.jogSeconds = jogSeconds
+            destination.isJog = isJog
+            destination.mainArray = mainArray
             destination.whatEdit = "warmup"
+            destination.fromFifteen = true
+            
+            
         } else {
             let destination : EleventhViewController = segue.destination as! EleventhViewController
             NSLog("in segue")
@@ -450,14 +343,12 @@ class NinthViewController: UIViewController,UITextFieldDelegate{
             destination.coolDownSeconds = coolDownSeconds
             destination.coolDownMinutes = coolDownMinutes
             destination.coolDownHours = coolDownHours
-            destination.fullRunSeconds = fullRunSeconds
-            destination.fullRunMinutes = fullRunMinutes
-            destination.fullRunHours = fullRunHours
         }
-
+        
     }
-    
-    
+
+
     
 }
+
 
