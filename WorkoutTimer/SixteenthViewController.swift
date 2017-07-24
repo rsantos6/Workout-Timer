@@ -75,8 +75,9 @@ class SixteenthViewController: UIViewController {
     
     
     
-    
     @IBOutlet weak var resumeButton: UIButton!
+    
+
     
     
     
@@ -111,9 +112,10 @@ class SixteenthViewController: UIViewController {
         countDown.invalidate()
         timer.invalidate()
         coolDownTimer.invalidate()
-        
+        jogCounter.invalidate()
     }
     
+
     
     @IBAction func startTimer(_ sender: UIButton) {
         
@@ -600,6 +602,7 @@ class SixteenthViewController: UIViewController {
             countDown.invalidate()
             timer.invalidate()
             coolDownTimer.invalidate()
+            jogCounter.invalidate()
             
             performSegue(withIdentifier: "endWorkoutThree", sender: nil)
         }
@@ -1008,7 +1011,7 @@ class SixteenthViewController: UIViewController {
         
         
         
-        
+        NSLog("PICK UP SECONDS: " + String(pickUpSeconds))
         
         //decrement the seconds
         pickUpSeconds -= 1
@@ -1138,6 +1141,8 @@ class SixteenthViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        NSLog("PICK UP SECONDS: " + String(pickUpSeconds))
+        
         super.viewDidLoad()
         
         whatEvents()

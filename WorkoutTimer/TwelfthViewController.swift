@@ -111,6 +111,7 @@ class TwelfthViewController: UIViewController {
         countDown.invalidate()
         timer.invalidate()
         coolDownTimer.invalidate()
+        jogCounter.invalidate()
 
     }
     
@@ -600,6 +601,7 @@ class TwelfthViewController: UIViewController {
             countDown.invalidate()
             timer.invalidate()
             coolDownTimer.invalidate()
+            jogCounter.invalidate()
             
             performSegue(withIdentifier: "endWorkoutTwo", sender: nil)
         }

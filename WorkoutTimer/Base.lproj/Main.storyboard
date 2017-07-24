@@ -736,7 +736,7 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ov0-xO-7JB" kind="show" identifier="noChange" id="WEk-Cb-msN"/>
+                                    <segue destination="Bo7-YQ-NKc" kind="show" identifier="noChanges" id="mUg-uQ-Wdx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="saveChanges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z52-se-eZL">
@@ -749,7 +749,7 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ov0-xO-7JB" kind="show" identifier="saveChanges" id="feb-KL-uIZ"/>
+                                    <segue destination="Bo7-YQ-NKc" kind="show" identifier="saveChanges" id="IRm-nF-NyI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1198,6 +1198,74 @@
             </objects>
             <point key="canvasLocation" x="53" y="-287"/>
         </scene>
+        <!--Sixteenth View Controller-->
+        <scene sceneID="sxN-4W-Q1g">
+            <objects>
+                <viewController id="zGO-r9-3nw" customClass="SixteenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sjn-Mm-Vlv"/>
+                        <viewControllerLayoutGuide type="bottom" id="HPp-rb-yQj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LnY-sz-tDg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0N-vJ-R0z">
+                                <rect key="frame" x="0.0" y="42" width="320" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf1-is-Fja">
+                                <rect key="frame" x="16" y="282" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Begin Countdown">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTimer:" destination="zGO-r9-3nw" eventType="touchUpInside" id="jSZ-a1-Yrl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvq-XA-zcg">
+                                <rect key="frame" x="16" y="472" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseTimer:" destination="zGO-r9-3nw" eventType="touchUpInside" id="cGC-it-9Au"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opd-ek-LhD">
+                                <rect key="frame" x="16" y="377" width="288" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="End">
+                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="endRun:" destination="zGO-r9-3nw" eventType="touchUpInside" id="8EK-hE-XgL"/>
+                                    <segue destination="Vb2-lh-NPs" kind="show" identifier="endWorkoutThree" id="Ryi-FC-cg6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91560882329940796" green="0.26447808742523193" blue="0.19926556944847107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="resumeButton" destination="gf1-is-Fja" id="08K-Sv-Xer"/>
+                        <outlet property="time" destination="A0N-vJ-R0z" id="teo-DK-QMJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpP-6L-gmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="1025"/>
+        </scene>
         <!--Fifteenth View Controller-->
         <scene sceneID="cVJ-YL-YjK">
             <objects>
@@ -1294,9 +1362,8 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startRunButton:" destination="Ul0-28-xG6" eventType="touchUpInside" id="yTr-ff-lwD"/>
                                     <action selector="toRunButton:" destination="Bo7-YQ-NKc" eventType="touchUpInside" id="HJ3-dm-r6d"/>
-                                    <segue destination="ov0-xO-7JB" kind="show" id="qxH-bF-v31"/>
+                                    <segue destination="zGO-r9-3nw" kind="show" id="xkd-bq-Ajl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU2-fc-bvS">
@@ -1325,7 +1392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STh-kB-2WD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875" y="994.0140845070423"/>
+            <point key="canvasLocation" x="1736" y="962"/>
         </scene>
         <!--FourteenthViewController-->
         <scene sceneID="JhJ-Qb-oKk">
@@ -1577,81 +1644,13 @@
             </objects>
             <point key="canvasLocation" x="2887.5" y="1024.6478873239437"/>
         </scene>
-        <!--Sixteenth View Controller-->
-        <scene sceneID="49l-To-1fF">
-            <objects>
-                <viewController storyboardIdentifier="SixteenthViewController" modalTransitionStyle="flipHorizontal" id="ov0-xO-7JB" customClass="SixteenthViewController" customModule="WorkoutTimer" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DQE-9a-1DW"/>
-                        <viewControllerLayoutGuide type="bottom" id="sOb-s4-5Pt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="we3-ng-Wav">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfp-V9-Aep">
-                                <rect key="frame" x="0.0" y="61" width="320" height="176"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdP-xp-9zC">
-                                <rect key="frame" x="16" y="301" width="288" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Begin Countdown">
-                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="startTimer:" destination="ov0-xO-7JB" eventType="touchUpInside" id="NGa-gM-Fg8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-79-tca">
-                                <rect key="frame" x="16" y="491" width="288" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Pause">
-                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseTimer:" destination="ov0-xO-7JB" eventType="touchUpInside" id="SoL-qg-Qj3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYm-Xm-bmY">
-                                <rect key="frame" x="16" y="396" width="288" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.1048126306" blue="0.036069293769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="End">
-                                    <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="endRun:" destination="ov0-xO-7JB" eventType="touchUpInside" id="6uL-rW-K0Q"/>
-                                    <segue destination="Vb2-lh-NPs" kind="show" identifier="endWorkoutThree" id="Ii5-GS-DSl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.91560882330000004" green="0.26447808740000001" blue="0.19926556940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="resumeButton" destination="FdP-xp-9zC" id="ZbI-ig-KmF"/>
-                        <outlet property="time" destination="Lfp-V9-Aep" id="BEk-Ok-fjb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u4D-ao-zEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8" y="920"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hOn-ob-sZE"/>
-        <segue reference="0cW-5T-txG"/>
+        <segue reference="M5Z-Vi-aPk"/>
+        <segue reference="mUg-uQ-Wdx"/>
+        <segue reference="SAw-gc-Zcs"/>
         <segue reference="Bmc-ya-Fw4"/>
-        <segue reference="oJ7-n5-Tu3"/>
-        <segue reference="feb-KL-uIZ"/>
+        <segue reference="Ryi-FC-cg6"/>
         <segue reference="NMt-q4-sVY"/>
         <segue reference="3Hb-55-9xv"/>
     </inferredMetricsTieBreakers>

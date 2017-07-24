@@ -383,6 +383,9 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
     
     
     override func viewDidLoad() {
+        NSLog("PICK UP SECONDS: " + String(pickUpSeconds))
+        
+        
         NSLog("in class")
         super.viewDidLoad()
         

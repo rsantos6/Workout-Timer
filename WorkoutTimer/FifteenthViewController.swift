@@ -9,35 +9,7 @@
 import Foundation
 import UIKit
 
-class FifteenthViewController: UIViewController,UITextFieldDelegate{
-    
-    @IBOutlet weak var warmUpInfo: UILabel!
-   
-    @IBOutlet weak var coolDownInfo: UILabel!
-    
-    @IBAction func editWarmUpButton(_ sender: UIButton) {
-        editWarmUp = true
-    }
-    
-    @IBAction func editCoolDownButton(_ sender: UIButton) {
-        editCoolDown = true
-    }
-    
-    @IBOutlet weak var numberOfIntervalsLabel: UILabel!
-    
-    @IBOutlet weak var pickUpLengthLabel: UILabel!
-    
-    @IBOutlet weak var restLengthLabel: UILabel!
-    
-    @IBAction func toEditButton(_ sender: UIButton) {
-        toEdit = true
-    }
-    
-    @IBAction func toRunButton(_ sender: UIButton) {
-        toRun = true
-    }
-    
-
+class FifteenthViewController: UIViewController,UITextFieldDelegate {
     
     var usersName = String()
     var warmUpSeconds = Int()
@@ -73,13 +45,45 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
     var stringRestHours = ""
     var stringRestMinutes = ""
     var stringRestSeconds = ""
-
+    
     var editWarmUp = false
     var editCoolDown = false
+    
 
     
+    @IBOutlet weak var warmUpInfo: UILabel!
+   
+    @IBOutlet weak var coolDownInfo: UILabel!
+    
+    @IBAction func editWarmUpButton(_ sender: UIButton) {
+        editWarmUp = true
+    }
+    
+    @IBAction func editCoolDownButton(_ sender: UIButton) {
+        editCoolDown = true
+    }
+    
+    @IBOutlet weak var numberOfIntervalsLabel: UILabel!
+    
+    @IBOutlet weak var pickUpLengthLabel: UILabel!
+    
+    @IBOutlet weak var restLengthLabel: UILabel!
+    
+    @IBAction func toEditButton(_ sender: UIButton) {
+        toEdit = true
+    }
+    
+    @IBAction func toRunButton(_ sender: UIButton) {
+        toRun = true
+    }
+    
+
+
+    
+    
     override func viewDidLoad() {
- 
+        NSLog("PICK UP SECONDS: " + String(pickUpSeconds))
+        
         super.viewDidLoad()
         
         var g = 0
@@ -557,7 +561,7 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
         
          if editCoolDown {
             let destination : TenthViewController = segue.destination as! TenthViewController
-            NSLog("in segue")
+            NSLog("in segue to Tenth")
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes
@@ -579,7 +583,7 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
             
         } else if editWarmUp {
             let destination : TenthViewController = segue.destination as! TenthViewController
-            NSLog("in segue")
+            NSLog("in segue to Tenth")
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes
@@ -602,7 +606,7 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
             
         } else if toEdit {
             let destination : SeventhViewController = segue.destination as! SeventhViewController
-            NSLog("in segue")
+            NSLog("in segue to Seventh")
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes
@@ -612,9 +616,10 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate{
             destination.coolDownHours = coolDownHours
             destination.isJog = isJog
             
-         } else if toRun {
+         } else {
             let destination : SixteenthViewController = segue.destination as! SixteenthViewController
-            NSLog("in segue")
+            NSLog("in segue to Sixteenth")
+            NSLog("segue PICK UP SECONDS: " + String(pickUpSeconds))
             destination.usersName = String(usersName)
             destination.warmUpSeconds = warmUpSeconds
             destination.warmUpMinutes = warmUpMinutes

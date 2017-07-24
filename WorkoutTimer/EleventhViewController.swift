@@ -90,6 +90,10 @@ class EleventhViewController: UIViewController {
            coolDownMelody.stop()
         }
         
+        /* 
+         *Ensures that the all of the timers
+         *stop when the run ends
+         */
         fullCounter.invalidate()
         countDown.invalidate()
         timer.invalidate()
