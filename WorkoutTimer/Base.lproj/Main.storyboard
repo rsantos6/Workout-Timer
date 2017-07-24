@@ -1375,7 +1375,7 @@
                                     <color key="titleColor" red="0.98645968260000005" green="0.98645968260000005" blue="0.98645968260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="toEditButton:" destination="Bo7-YQ-NKc" eventType="touchUpInside" id="s9C-Xr-jjI"/>
+                                    <action selector="editButton:" destination="Bo7-YQ-NKc" eventType="touchUpInside" id="6Em-PV-0uS"/>
                                     <segue destination="eFz-Pm-hww" kind="show" id="M5Z-Vi-aPk"/>
                                 </connections>
                             </button>

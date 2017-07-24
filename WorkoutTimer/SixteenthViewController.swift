@@ -66,11 +66,14 @@ class SixteenthViewController: UIViewController {
     var jogMinutes = Int()
     var jogSeconds = Int()
     var isJog = Bool()
+    var mainArray = [IncrementDecrement]()
     
     var beginWorkoutIn = false
     var beginWarmUpIn = false
     var beginCoolDownIn = false
     var runEndsIn = false
+    
+    var currentInterval = 1
     
     
     
@@ -1101,6 +1104,8 @@ class SixteenthViewController: UIViewController {
             jogHours = tempJogHours
             jogMinutes = tempJogMinutes
             jogSeconds = tempJogSeconds
+            currentInterval = currentInterval + 1 //add one to the current interval
+            //in order to figure out how much to increment or decrement the interval by if at all
             beginWorkout()
             
         } else if (jogSeconds == 10) && (jogMinutes == 0) && (jogHours == 0) {
@@ -1142,6 +1147,12 @@ class SixteenthViewController: UIViewController {
     
     override func viewDidLoad() {
         NSLog("PICK UP SECONDS: " + String(pickUpSeconds))
+        
+        var i = 0
+        while i < mainArray.count {
+            mainArray[i].toString()
+            i = i + 1
+        }
         
         super.viewDidLoad()
         

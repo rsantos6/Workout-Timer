@@ -69,15 +69,15 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var restLengthLabel: UILabel!
     
-    @IBAction func toEditButton(_ sender: UIButton) {
-        toEdit = true
-    }
     
     @IBAction func toRunButton(_ sender: UIButton) {
         toRun = true
     }
     
 
+    @IBAction func editButton(_ sender: UIButton) {
+        toEdit = true
+    }
 
     
     
@@ -635,6 +635,7 @@ class FifteenthViewController: UIViewController,UITextFieldDelegate {
             destination.jogMinutes = jogMinutes
             destination.jogSeconds = jogSeconds
             destination.isJog = isJog
+            destination.mainArray = mainArray
 
         }
     }

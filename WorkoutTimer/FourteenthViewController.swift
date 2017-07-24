@@ -81,6 +81,46 @@ class FourteenthViewController: UIViewController,UITextFieldDelegate, UIPickerVi
              * now I just want to see if it works and Swift pass by reference
              * is different than what I'm accustom to
              *****************************************************************/
+        } else if (pickUpChangeSeconds != 0 || pickUpChangeMinutes != 0 || pickUpChangeHours != 0) && ((intervalIncrementIsClicked == false) && (intervalDecrementIsClicked == false)) {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Would you like to increment or decrement?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+        } else if (restChangeSeconds != 0 || restChangeMinutes != 0 || restChangeHours != 0) && ((restIncrementIsClicked == false) && (restDecrementIsClicked == false)) {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "Would you like to increment or decrement?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+        } else if (pickUpChangeSeconds == 0 && pickUpChangeMinutes == 0 && pickUpChangeHours == 0) && ((intervalIncrementIsClicked == true) || (intervalDecrementIsClicked == true)) {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "How much would you like to change by?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+            } else if (restChangeSeconds == 0 && restChangeMinutes == 0 && restChangeHours == 0) && ((restIncrementIsClicked == true) || (restDecrementIsClicked == true)) {
+                
+                let alertController = UIAlertController(title: "Workout Timer", message:
+                    "How much would you like to change by?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
             
             
         } else if intervalIncrementIsClicked && restIncrementIsClicked {
