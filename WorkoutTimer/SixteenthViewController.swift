@@ -73,7 +73,7 @@ class SixteenthViewController: UIViewController {
     var beginCoolDownIn = false
     var runEndsIn = false
     
-    var currentInterval = 1
+    var currentInterval = 1 //used to determine whether or not we need to increment or decrement the pick up or jog time
     
     
     
@@ -981,6 +981,22 @@ class SixteenthViewController: UIViewController {
             
             fullCounter.invalidate()
             goPickUp = false
+            var arrayCounter = 0
+            while arrayCounter < mainArray.count {
+                if (currentInterval >= mainArray[arrayCounter].getStartInterval()) && (currentInterval < mainArray[arrayCounter].getEndInterval()) {
+                    if mainArray[arrayCounter].isIncrementPickUp() {
+                        tempPickUpHours = tempPickUpHours + mainArray[arrayCounter].getIntervalChangeHours()
+                        tempPickUpMinutes = tempPickUpMinutes + mainArray[arrayCounter].getIntervalChangeMinutes()
+                        tempPickUpSeconds = tempPickUpSeconds + mainArray[arrayCounter].getIntervalChangeSeconds()
+                        
+                    } else if (mainArray[arrayCounter].isDecrementPickUp()) &&  ((tempPickUpHours - mainArray[arrayCounter].getRestChangeHours() > 0) ||  (tempPickUpMinutes - mainArray[arrayCounter].getRestChangeMinutes() > 0) || (tempPickUpSeconds - mainArray[arrayCounter].getRestChangeSeconds() > 0)) {
+                        tempPickUpHours = tempPickUpHours - mainArray[arrayCounter].getIntervalChangeHours()
+                        tempPickUpMinutes = tempPickUpMinutes - mainArray[arrayCounter].getIntervalChangeMinutes()
+                        tempPickUpSeconds = tempPickUpSeconds - mainArray[arrayCounter].getIntervalChangeSeconds()
+                    }
+                }
+                arrayCounter = arrayCounter + 1
+            }
             pickUpHours = tempPickUpHours
             pickUpMinutes = tempPickUpMinutes
             pickUpSeconds = tempPickUpSeconds
@@ -1101,6 +1117,22 @@ class SixteenthViewController: UIViewController {
             
             jogCounter.invalidate()
             goPickUp = true
+            var arrayCounter = 0
+            while arrayCounter < mainArray.count {
+                if (currentInterval >= mainArray[arrayCounter].getStartInterval()) && (currentInterval < mainArray[arrayCounter].getEndInterval()) {
+                    if mainArray[arrayCounter].isIncrementRest() {
+                        tempJogHours = tempJogHours + mainArray[arrayCounter].getRestChangeHours()
+                        tempJogMinutes = tempJogMinutes + mainArray[arrayCounter].getRestChangeMinutes()
+                        tempJogSeconds = tempJogSeconds + mainArray[arrayCounter].getRestChangeSeconds()
+                        
+                    } else if (mainArray[arrayCounter].isDecrementRest()) &&  ((tempJogHours - mainArray[arrayCounter].getRestChangeHours() > 0) ||  (tempJogMinutes - mainArray[arrayCounter].getRestChangeMinutes() > 0) || (tempJogSeconds - mainArray[arrayCounter].getRestChangeSeconds() > 0)) {
+                        tempJogHours = tempJogHours - mainArray[arrayCounter].getRestChangeHours()
+                        tempJogMinutes = tempJogMinutes - mainArray[arrayCounter].getRestChangeMinutes()
+                        tempJogSeconds = tempJogSeconds - mainArray[arrayCounter].getRestChangeSeconds()
+                    }
+                }
+                arrayCounter = arrayCounter + 1
+            }
             jogHours = tempJogHours
             jogMinutes = tempJogMinutes
             jogSeconds = tempJogSeconds
