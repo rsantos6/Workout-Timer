@@ -345,7 +345,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Adv-OW-vaM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QmB-BJ-S8v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-my-VGa">
@@ -453,7 +453,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RM1-vM-rib"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yoJ-qQ-Ygt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-N5-wnJ">
@@ -1275,7 +1275,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xD3-xn-Itc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IlW-0N-s4w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" currentPage="6" translatesAutoresizingMaskIntoConstraints="NO" id="N8j-Mf-TUg">
@@ -1647,10 +1647,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="M5Z-Vi-aPk"/>
-        <segue reference="mUg-uQ-Wdx"/>
+        <segue reference="kZC-I6-xYU"/>
         <segue reference="SAw-gc-Zcs"/>
         <segue reference="Bmc-ya-Fw4"/>
-        <segue reference="Ryi-FC-cg6"/>
+        <segue reference="DVk-5V-0WD"/>
         <segue reference="NMt-q4-sVY"/>
         <segue reference="3Hb-55-9xv"/>
     </inferredMetricsTieBreakers>

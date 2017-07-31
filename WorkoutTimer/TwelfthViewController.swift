@@ -1033,7 +1033,7 @@ class TwelfthViewController: UIViewController {
         }
         
         //if warmup minutes exist and are less than 10
-        if (pickUpMinutes > 0) && (pickUpMinutes < 10) {
+        if (jogMinutes > 0) && (jogMinutes < 10) {
             //add a zero in front for appearance and a colon at the end
             timerText = timerText + "0" + String(jogMinutes) + ":"
             
@@ -1061,7 +1061,7 @@ class TwelfthViewController: UIViewController {
         }
         
         //if seconds just hit 0 and there are more minutes remaining
-        if (jogSeconds == 0) && (pickUpMinutes > 0) {
+        if (jogSeconds == 0) && (jogMinutes > 0) {
             //put a zero in front the zero that will be seconds
             timerText = timerText + "0" + String(jogSeconds)
             //subtract 1 from minutes

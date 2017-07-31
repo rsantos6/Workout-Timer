@@ -989,10 +989,18 @@ class SixteenthViewController: UIViewController {
                         tempPickUpMinutes = tempPickUpMinutes + mainArray[arrayCounter].getIntervalChangeMinutes()
                         tempPickUpSeconds = tempPickUpSeconds + mainArray[arrayCounter].getIntervalChangeSeconds()
                         
+                        NSLog("tempPickUpHours: " + String(tempPickUpHours))
+                        NSLog("tempPickUpMinutes: " + String(tempPickUpMinutes))
+                        NSLog("tempPickUpSeconds: " + String(tempPickUpSeconds))
+                        
                     } else if (mainArray[arrayCounter].isDecrementPickUp()) &&  ((tempPickUpHours - mainArray[arrayCounter].getRestChangeHours() > 0) ||  (tempPickUpMinutes - mainArray[arrayCounter].getRestChangeMinutes() > 0) || (tempPickUpSeconds - mainArray[arrayCounter].getRestChangeSeconds() > 0)) {
                         tempPickUpHours = tempPickUpHours - mainArray[arrayCounter].getIntervalChangeHours()
                         tempPickUpMinutes = tempPickUpMinutes - mainArray[arrayCounter].getIntervalChangeMinutes()
                         tempPickUpSeconds = tempPickUpSeconds - mainArray[arrayCounter].getIntervalChangeSeconds()
+                        
+                        NSLog("tempPickUpHours: " + String(tempPickUpHours))
+                        NSLog("tempPickUpMinutes: " + String(tempPickUpMinutes))
+                        NSLog("tempPickUpSeconds: " + String(tempPickUpSeconds))
                     }
                 }
                 arrayCounter = arrayCounter + 1
@@ -1000,6 +1008,11 @@ class SixteenthViewController: UIViewController {
             pickUpHours = tempPickUpHours
             pickUpMinutes = tempPickUpMinutes
             pickUpSeconds = tempPickUpSeconds
+            
+            NSLog("pickUpHours: " + String(pickUpHours))
+            NSLog("pickUpMinutes: " + String(pickUpMinutes))
+            NSLog("pickUpSeconds: " + String(pickUpSeconds))
+            
             beginWorkout()
             
         } else if (pickUpSeconds == 10) && (pickUpMinutes == 0) && (pickUpHours == 0) && (numberOfIntervals > 0) {
@@ -1053,7 +1066,7 @@ class SixteenthViewController: UIViewController {
         }
         
         //if warmup minutes exist and are less than 10
-        if (pickUpMinutes > 0) && (pickUpMinutes < 10) {
+        if (jogMinutes > 0) && (jogMinutes < 10) {
             //add a zero in front for appearance and a colon at the end
             timerText = timerText + "0" + String(jogMinutes) + ":"
             
@@ -1081,7 +1094,7 @@ class SixteenthViewController: UIViewController {
         }
         
         //if seconds just hit 0 and there are more minutes remaining
-        if (jogSeconds == 0) && (pickUpMinutes > 0) {
+        if (jogSeconds == 0) && (jogMinutes > 0) {
             //put a zero in front the zero that will be seconds
             timerText = timerText + "0" + String(jogSeconds)
             //subtract 1 from minutes
@@ -1125,10 +1138,19 @@ class SixteenthViewController: UIViewController {
                         tempJogMinutes = tempJogMinutes + mainArray[arrayCounter].getRestChangeMinutes()
                         tempJogSeconds = tempJogSeconds + mainArray[arrayCounter].getRestChangeSeconds()
                         
+                        NSLog("tempJogHours: " + String(tempJogHours))
+                        NSLog("tempJogMinutes: " + String(tempJogMinutes))
+                        NSLog("tempJog Seconds: " + String(tempJogSeconds))
+                        
+                        
                     } else if (mainArray[arrayCounter].isDecrementRest()) &&  ((tempJogHours - mainArray[arrayCounter].getRestChangeHours() > 0) ||  (tempJogMinutes - mainArray[arrayCounter].getRestChangeMinutes() > 0) || (tempJogSeconds - mainArray[arrayCounter].getRestChangeSeconds() > 0)) {
                         tempJogHours = tempJogHours - mainArray[arrayCounter].getRestChangeHours()
                         tempJogMinutes = tempJogMinutes - mainArray[arrayCounter].getRestChangeMinutes()
                         tempJogSeconds = tempJogSeconds - mainArray[arrayCounter].getRestChangeSeconds()
+                        
+                        NSLog("tempJogHours: " + String(tempJogHours))
+                        NSLog("tempJogMinutes: " + String(tempJogMinutes))
+                        NSLog("tempJogSeconds: " + String(tempJogSeconds))
                     }
                 }
                 arrayCounter = arrayCounter + 1
@@ -1136,6 +1158,11 @@ class SixteenthViewController: UIViewController {
             jogHours = tempJogHours
             jogMinutes = tempJogMinutes
             jogSeconds = tempJogSeconds
+            
+            NSLog("jogHours: " + String(jogHours))
+            NSLog("jogMinutes: " + String(jogMinutes))
+            NSLog("jogSeconds: " + String(jogSeconds))
+            
             currentInterval = currentInterval + 1 //add one to the current interval
             //in order to figure out how much to increment or decrement the interval by if at all
             beginWorkout()
